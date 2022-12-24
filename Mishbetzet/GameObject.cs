@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class GameObject
+    public class GameObject
     {
-        Tile _tile;
+        Tile _currentTile;
 
-        public Tile Tile { get => _tile; set => _tile = value; }
+        public Tile Tile { get => _currentTile; set => _currentTile = value; }
     }
 }
