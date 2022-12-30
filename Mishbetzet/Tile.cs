@@ -18,5 +18,14 @@
         }
 
         public Point Position { get; set; }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
+        }
+
+        #region RenderRelated
+
+        #endregion
     }
 }

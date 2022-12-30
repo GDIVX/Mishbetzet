@@ -11,5 +11,9 @@ namespace Mishbetzet
         Tile _currentTile;
 
         public Tile Tile { get => _currentTile; set => _currentTile = value; }
+
+        #region RenderRelated
+        public string GameobjetcLook {get; protected set;}
+        #endregion
     }
 }
