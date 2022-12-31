@@ -34,20 +34,48 @@
             KLetter
         }
 
-        void InitialCreation(Tilemap tilemap)
+        public void Print()
         {
             for (int i = 0; i < _height; i++)
             {
                 for (int j = 0; j < _width; j++)
                 {
-                    _engineTileMap[i, j] = GetTileLook(tilemap.GetTile(i,j));
+                    Console.Write(_engineTileMap[j, i]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// A meathod the creats an initial tileMap of renders
+        /// </summary>
+        /// <param name="tilemap"></param>
+        void InitialCreation(Tilemap tilemap)
+        {
+            for (int i = 0; i < tilemap.Height; i++)
+            {
+                for (int j = 0; j < tilemap.Width; j++)
+                {
+                    _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
                 }
             }
         }
 
-        string GetTileLook(Tile tile, DefualtGameObject gameObjectLooks = DefualtGameObject.OLetter, TileStyle tilestyle = TileStyle.Square)
+        /// <summary>
+        /// A method incharge of getting spcific tile look
+        /// </summary>
+        /// <param name="tile"></param>
+        /// <param name="gameObjectLooks"></param>
+        /// <param name="tilestyle"></param>
+        /// <returns></returns>
+        string GetTileLook(Tile tile, DefualtGameObject gameObjectLooks = DefualtGameObject.KLetter, TileStyle tilestyle = TileStyle.Square)
         {
             string f = "[", m = " ", l = "]";
+
+            if (tile.GetGameObject() == null)
+            {
+                m = " ";
+            }
 
             switch (gameObjectLooks)
             {
@@ -59,9 +87,6 @@
                     break;
                 case DefualtGameObject.KLetter:
                     m = "K";
-                    break;
-                default:
-                    m = " ";
                     break;
             }
 

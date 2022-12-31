@@ -9,7 +9,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Tilemap tileMap = new(10,4);
+        Tilemap tileMap = new(8,8);
         GameRenderer gameRenderer = new GameRenderer(tileMap);
+        gameRenderer.Print();
     }
 }

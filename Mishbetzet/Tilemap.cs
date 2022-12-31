@@ -18,6 +18,7 @@ namespace Mishbetzet
             _tiles = new Tile[width, height];
         }
 
+        // I think we should name x and y width and height, i can find myself confused from time to time so i guess clients will do so too
         public Tile GetTile(int x, int y)
         {
             //TODO check if x and y are in bounds
