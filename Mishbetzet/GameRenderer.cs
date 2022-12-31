@@ -10,6 +10,8 @@
         int _width;
         int _height;
 
+        bool _initChanges = false;
+
         ConsoleColor _fgColor = ConsoleColor.White;
         ConsoleColor _bgColor = ConsoleColor.Black;
 
@@ -35,6 +37,35 @@
             Zero,
             KLetter
         }
+
+        #region CST overload
+        /// <summary>
+        /// Changes specific tile color
+        /// </summary>
+        /// <param name="tile">The desired tile to set changes</param>
+        /// <param name="color">The selected color for the tile</param>
+        /// <param name="foreground">true = foreground, false = background</param>
+        public void ChangeSpecificTile(Tile tile,ConsoleColor color,bool foreground)
+        {
+            _initChanges = true;
+            if (foreground)
+            {
+                return;
+            }
+
+        }
+
+        /// <summary>
+        /// Changes specific tile stlye
+        /// </summary>
+        /// <param name="tile"></param>
+        /// <param name="tilestyle"></param>
+        public void ChangeSpecificTile(Tile tile, TileStyle tilestyle)
+        {
+            _initChanges = true;
+        }
+        #endregion
+
 
         /// <summary>
         /// Changes foreground color acroos the entire tilemap
