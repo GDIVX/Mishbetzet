@@ -23,9 +23,5 @@
         {
             return gameObject;
         }
-
-        #region RenderRelated
-
-        #endregion
     }
 }
