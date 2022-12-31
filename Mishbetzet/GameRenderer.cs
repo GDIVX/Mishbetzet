@@ -10,6 +10,8 @@
         int _width;
         int _height;
 
+        ConsoleColor _fgColor = ConsoleColor.White;
+        ConsoleColor _bgColor = ConsoleColor.Black;
 
         public GameRenderer(Tilemap tilemap)
         {
@@ -34,8 +36,22 @@
             KLetter
         }
 
+        /// <summary>
+        /// Changes foreground color acroos the entire tilemap
+        /// </summary>
+        /// <param name="color"></param>
+        public void ChangeForeground(ConsoleColor color) => _fgColor = color;
+
+        /// <summary>
+        /// Changes background color across the enire tilemap
+        /// </summary>
+        /// <param name="color"></param>
+        public void ChangeBackground(ConsoleColor color) => _bgColor = color;
+
         public void Print()
         {
+            Console.ForegroundColor = _fgColor;
+            Console.BackgroundColor = _bgColor;
             for (int i = 0; i < _height; i++)
             {
                 for (int j = 0; j < _width; j++)
@@ -72,11 +88,13 @@
         {
             string f = "[", m = " ", l = "]";
 
-            if (tile.GetGameObject() == null)
+            // this if place holder, this should be if tile hold a null gameobject
+            if (tile == null)
             {
                 m = " ";
             }
-
+            else
+            {
             switch (gameObjectLooks)
             {
                 case DefualtGameObject.OLetter:
@@ -89,6 +107,8 @@
                     m = "K";
                     break;
             }
+            }
+
 
             switch (tilestyle)
             {
@@ -119,6 +139,7 @@
     }
 }
 
+#region Try
 ////First Try, can use as a refrence
 //TileStyle _style;
 //TilemapPattern _pattern;
@@ -194,3 +215,4 @@
 //            break;
 //    }
 //}
+#endregion
