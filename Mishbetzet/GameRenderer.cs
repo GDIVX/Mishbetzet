@@ -63,6 +63,12 @@
         public void ChangeSpecificTile(Tile tile, TileStyle tilestyle)
         {
             _initChanges = true;
+            /* 
+             * Make sure to understand where this tile is located
+             * use point to do so
+             * change the _enginetilemap to coreponed with changes
+             * you/client choose to do 
+             */
         }
         #endregion
 
