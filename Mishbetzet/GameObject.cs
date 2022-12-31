@@ -9,10 +9,10 @@ namespace Mishbetzet
     internal abstract class GameObject : IMovable
     {
         Tile _currentTile;
-        Controller _objectController;
+        Controller _controller;
 
         public Tile Tile { get => _currentTile; set => _currentTile = value; }
-        public Controller ObjectController { get => _objectController; private set => _objectController = value; }
+        public Controller ObjectController { get => _controller; private set => _controller = value; }
 
         
         public event Action<GameObject> OnStep;
@@ -21,7 +21,7 @@ namespace Mishbetzet
 
         public GameObject(Controller actor)
         {
-            _objectController = actor;
+            _controller = actor;
         }
 
         public abstract void Move();

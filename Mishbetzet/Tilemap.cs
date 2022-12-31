@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class Tilemap : IEnumerable<int>
+    internal class Tilemap : IEnumerable<Tile>
     {
         Tile[,] _tiles;
-        Dictionary<Tile, int> index; //implementation for int index?
-                                     //every tile has an int key in the tilemap instead of on the tile itself
 
         public int Width { get => _tiles.GetLength(0); }
         public int Height { get => _tiles.GetLength(1); }
@@ -19,42 +17,51 @@ namespace Mishbetzet
         public Tilemap(int width, int height)
         {
             _tiles = new Tile[width, height];
-
-            int count = 0;
-            for (int i = 0; i < width; i++;)
-            {
-                for (int j = 0; j < height; j++;)
-                {
-                    index.Add(new Point(j, i), count);
-                    count++;
-                }
-            }
         }
 
+        //returns tile at x,y coordinate
         public Tile GetTile(int x, int y)
         {
             //TODO check if x and y are in bounds
+            if(x < 0 || y < 0 || x >= Width || y >= Height)
+            {
+                throw new ArgumentOutOfRangeException(nameof(x), nameof(y));
+            }
             return _tiles[x, y];
         }
 
-        public IEnumerator<int> GetEnumerator()
+        //set tile at x,y to another tile
+        public void SetTile(int x, int y, Tile tile)
         {
-            for(int = _tiles.Length)
+            if (x < 0 || y < 0 || x >= Width || y >= Height)
             {
-
+                throw new ArgumentOutOfRangeException(nameof(x), nameof(y));
             }
-            //foreach(Tile tile in _tiles)
-            //{
-            //    yield return tile;
-            //}
+
+            _tiles[x, y] = tile;
         }
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    for (int i = _tiles.Length; i >= 0; i--;)
-        //    {
-                
-        //    }
-        //}
+        public IEnumerator<Tile> GetEnumerator()
+        {
+            //for (int i = Height; i > 0; i--)
+            //{
+            //    for (int j = Width; j > 0; j--)
+            //    {
+            //        yield return _tiles[j - 1, i - 1];
+            //    }
+            //}
+            foreach (Tile tile in _tiles)
+            {
+                yield return tile;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            foreach(var tile in _tiles)
+            {
+                yield return tile;
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace Mishbetzet
 {
     internal class Controller
     {
+        List<Tile> tiles;
+        List<GameObject> gameObjects;
 
     }
 }
