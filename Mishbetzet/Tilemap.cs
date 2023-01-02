@@ -63,5 +63,42 @@ namespace Mishbetzet
                 yield return tile;
             }
         }
+
+        public IEnumerator<Tile> SpiralEnumerator(Tile startingTile)
+        {
+            int x = startingTile.Position.X;
+            int y = startingTile.Position.Y;
+            int steps = 1;
+            
+            while (x < 0 || y < 0 || x >= Width || y >= Height)
+            {
+                //yield return _tiles[x, y]; //checks initial tile
+                for(int i = 0; i < steps; i++)
+                {
+                    x -= steps;
+                    yield return _tiles[x, y];
+                }
+                for (int i = 0; i < steps; i++)
+                {
+                    y -= steps;
+                    yield return _tiles[x, y];
+                }
+
+                steps++;
+                
+                for (int i = 0; i < steps; i++)
+                {
+                    x += steps;
+                    yield return _tiles[x, y];
+                }
+                for (int i = 0; i < steps; i++)
+                {
+                    y += steps;
+                    yield return _tiles[x, y];
+                }
+                
+                steps++;
+            }
+        }
     }
 }

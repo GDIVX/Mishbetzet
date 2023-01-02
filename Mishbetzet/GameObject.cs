@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal abstract class GameObject : IMovable
+    internal abstract class GameObject : IMovable, ICloneable
     {
         Tile _currentTile;
         Controller _controller;
@@ -15,7 +15,7 @@ namespace Mishbetzet
         public Controller ObjectController { get => _controller; private set => _controller = value; }
 
         
-        public event Action<GameObject> OnStep;
+        public event Action OnStep;
 
         public event Action<GameObject> OnPassOver;
 
@@ -24,6 +24,38 @@ namespace Mishbetzet
             _controller = actor;
         }
 
-        public abstract void Move();
+        public abstract void Move(); //does x amount of steps with rules
+
+        public virtual void Step(StepDirection targetStep)
+        {
+            switch(targetStep)
+            {
+                case StepDirection.N:
+                    //check if can move up
+                    //TODO move up
+                    break;
+            }
+        }
+
+        public object Clone()
+        {
+            var clone = new GameObject(_controller); //?????????? :)
+            clone.Tile = _currentTile;
+            clone.OnStep = OnStep;
+            clone.OnPassOver = OnPassOver;
+            return clone;
+        }
+
+        public enum StepDirection
+        {
+            N,
+            S,
+            E,
+            W,
+            NE,
+            NW,
+            SE,
+            SW
+        }
     }
 }

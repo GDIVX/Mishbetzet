@@ -5,7 +5,7 @@
         // what if every tile will hold a gameObject ?
         // meaning if the gameobject on said tile is null then the tile is free and has no gameobject in it,
         // if not it must means it is occupied with some type of gameobject.
-        List<GameObject> gameObjects = new();
+        GameObject gameObject;
         TileState tileState;
 
         #region constructors
@@ -27,19 +27,19 @@
         {
             Position = new Point(posX, posY);
             this.tileState = tileState;
-            gameObjects.Add(gameObject);
+            this.gameObject = gameObject;
         }
         #endregion
 
         public void SetGameObject(GameObject go)
         {
             //TODO checks if tile can hold gameobject
-            gameObjects.Add(go);
+            gameObject = go;
         }
 
-        public List<GameObject> GetGameObject()
+        public GameObject GetGameObject()
         {
-            return gameObjects;
+            return gameObject;
         }
 
         public Point Position { get; set; }
