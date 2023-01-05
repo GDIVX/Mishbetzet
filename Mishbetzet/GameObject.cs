@@ -23,6 +23,7 @@ namespace Mishbetzet
         {
             _controller = actor;
         }
+        
 
         public abstract void Move(); //does x amount of steps with rules
 
@@ -37,14 +38,14 @@ namespace Mishbetzet
             }
         }
 
-        public object Clone()
-        {
-            var clone = new GameObject(_controller); //?????????? :)
-            clone.Tile = _currentTile;
-            clone.OnStep = OnStep;
-            clone.OnPassOver = OnPassOver;
-            return clone;
-        }
+        public abstract object Clone();
+        //{
+        //    var clone = new GameObject(_controller); //?????????? :)
+        //    clone.Tile = _currentTile;
+        //    clone.OnStep = OnStep;
+        //    clone.OnPassOver = OnPassOver;
+        //    return clone;
+        //}
 
         public enum StepDirection
         {
