@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class Controller
+    internal class EmptyTile : Tile
     {
-        List<Tile> tiles;
-        List<GameObject> gameObjects;
-
+        public EmptyTile(int posX, int posY) : base(posX, posY)
+        {
+        }
     }
 }

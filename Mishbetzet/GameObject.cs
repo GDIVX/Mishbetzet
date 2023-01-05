@@ -9,19 +9,21 @@ namespace Mishbetzet
     internal abstract class GameObject : IMovable, ICloneable
     {
         Tile _currentTile;
-        Controller _controller;
+        Actor _actor;
+        int _amountOfStepsPossible; //if null then endless
+
 
         public Tile Tile { get => _currentTile; set => _currentTile = value; }
-        public Controller ObjectController { get => _controller; private set => _controller = value; }
+        public Actor ObjectController { get => _actor; private set => _actor = value; }
 
         
         public event Action OnStep;
 
         public event Action<GameObject> OnPassOver;
 
-        public GameObject(Controller actor)
+        public GameObject(Actor actor)
         {
-            _controller = actor;
+            _actor = actor;
         }
         
 

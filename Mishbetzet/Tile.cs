@@ -7,7 +7,8 @@
         // if not it must means it is occupied with some type of gameobject.
         GameObject gameObject;
         TileState tileState;
-        Controller controller;
+        Actor controller;
+        public Point Position { get; set; }
 
         #region constructors
         public Tile(int posX, int posY)
@@ -43,7 +44,6 @@
             return gameObject;
         }
 
-        public Point Position { get; set; }
 
         public override string ToString()
         {

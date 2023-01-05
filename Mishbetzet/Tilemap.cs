@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,53 +51,62 @@ namespace Mishbetzet
             //        yield return _tiles[j - 1, i - 1];
             //    }
             //}
-            foreach (Tile tile in _tiles)
+            //foreach (Tile tile in _tiles)
+            //{
+            //    yield return tile;
+            //}
+            for (int i = 0; i < Height; i++)
             {
-                yield return tile;
+                for (int j = 0; j < Width; j++)
+                {
+                    yield return _tiles[j, i];
+                }
             }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            foreach(var tile in _tiles)
-            {
-                yield return tile;
-            }
+            return GetEnumerator();
         }
 
-        public IEnumerator<Tile> SpiralEnumerator(Tile startingTile)
+        public IEnumerator<Tile> SpiralEnumerator(Point p)
         {
-            int x = startingTile.Position.X;
-            int y = startingTile.Position.Y;
+            int x = p.X;
+            int y = p.Y;
             int steps = 1;
-            
-            while (x < 0 || y < 0 || x >= Width || y >= Height)
+            int loop = Height > Width ? Height : Width;
+
+            for (int l = 0; l < loop; l++)
             {
                 //yield return _tiles[x, y]; //checks initial tile
-                for(int i = 0; i < steps; i++)
+                for (int i = 0; i < steps; i++)
                 {
                     x -= steps;
-                    yield return _tiles[x, y];
+                    if (x < 0 || y < 0 || x >= Width || y >= Height)
+                        yield return _tiles[x, y];
                 }
                 for (int i = 0; i < steps; i++)
                 {
                     y -= steps;
-                    yield return _tiles[x, y];
+                    if (x < 0 || y < 0 || x >= Width || y >= Height)
+                        yield return _tiles[x, y];
                 }
 
                 steps++;
-                
+
                 for (int i = 0; i < steps; i++)
                 {
                     x += steps;
-                    yield return _tiles[x, y];
+                    if (x < 0 || y < 0 || x >= Width || y >= Height)
+                        yield return _tiles[x, y];
                 }
                 for (int i = 0; i < steps; i++)
                 {
                     y += steps;
-                    yield return _tiles[x, y];
+                    if (x < 0 || y < 0 || x >= Width || y >= Height)
+                        yield return _tiles[x, y];
                 }
-                
+
                 steps++;
             }
         }
