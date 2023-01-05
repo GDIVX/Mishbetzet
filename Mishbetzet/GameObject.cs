@@ -27,16 +27,16 @@ namespace Mishbetzet
 
         public abstract void Move(); //does x amount of steps with rules
 
-        public virtual void Step(StepDirection targetStep)
-        {
-            switch(targetStep)
-            {
-                case StepDirection.N:
-                    //check if can move up
-                    //TODO move up
-                    break;
-            }
-        }
+        public abstract void Step(StepDirection targetStep);
+        //{
+        //    switch(targetStep)
+        //    {
+        //        case StepDirection.N:
+        //            //check if can move up
+        //            //TODO move up
+        //            break;
+        //    }
+        //}
 
         public abstract object Clone();
         //{
@@ -47,7 +47,7 @@ namespace Mishbetzet
         //    return clone;
         //}
 
-        public enum StepDirection
+        public enum StepDirection //each step can only be in one of these directions
         {
             N,
             S,

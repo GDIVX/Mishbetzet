@@ -7,6 +7,7 @@
         // if not it must means it is occupied with some type of gameobject.
         GameObject gameObject;
         TileState tileState;
+        Controller controller;
 
         #region constructors
         public Tile(int posX, int posY)
