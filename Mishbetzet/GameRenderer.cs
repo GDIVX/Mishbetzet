@@ -5,6 +5,9 @@
     /// </summary>
     internal class GameRenderer
     {
+        /// <summary>
+        /// Tile map the render engine creates to facilitate any possable changes
+        /// </summary>
         string[,] _engineTileMap;
 
         int _width;
@@ -14,6 +17,7 @@
 
         ConsoleColor _fgColor = ConsoleColor.White;
         ConsoleColor _bgColor = ConsoleColor.Black;
+
 
         public GameRenderer(Tilemap tilemap)
         {
@@ -40,7 +44,7 @@
 
         #region CST overload
         /// <summary>
-        /// Changes specific tile color
+        /// Changes specific tile color *W I P*
         /// </summary>
         /// <param name="tile">The desired tile to set changes</param>
         /// <param name="color">The selected color for the tile</param>
@@ -169,6 +173,11 @@
         }
     }
 }
+
+// After Generic lesson i have to ideas to further expaned on this 
+// maybe this Can accept generic where is : IRenderable or something
+// then anything that will be consider renderable or IScaleable can be  
+// implemented one way or another in this Render Context
 
 #region Try
 ////First Try, can use as a refrence
