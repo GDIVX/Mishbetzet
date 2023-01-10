@@ -34,6 +34,13 @@
         }
         #endregion
 
+        //internal static Tile Create(int x, int y)
+        //{
+        //    Tile tile = new();
+        //    tile.Position = new Point(x, y);
+        //    return tile;
+        //}
+
         public void SetGameObject(GameObject go)
         {
             //TODO checks if tile can hold gameobject
@@ -57,12 +64,8 @@
             Empty,
             Holding
         }
-    //internal static Tile Create(int x, int y)
-    //{
-    //    Tile tile = new();
-    //    tile.Position = new Point(x, y);
-    //    return tile;
-    //}
+
+        
 
     }
 }
