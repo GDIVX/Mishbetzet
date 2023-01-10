@@ -12,5 +12,11 @@ namespace Mishbetzet
 
         public Tile Tile { get => _currentTile; set => _currentTile = value; }
 
+        public static GameObject Create(Tile tile)
+        {
+            GameObject gameObject = new();
+            gameObject.Tile = tile;
+            return gameObject;
+        }
     }
 }
