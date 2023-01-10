@@ -42,7 +42,8 @@
             KLetter
         }
 
-        #region CST overload
+
+        #region ChangeSpecificTile overload
         /// <summary>
         /// Changes specific tile color *W I P*
         /// </summary>
