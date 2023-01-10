@@ -26,13 +26,18 @@ namespace Mishbetzet
             }
         }
 
+        public Tile? this[int x, int y]
+        {
+            get => GetTile(x, y);
+        }
+
         /// <summary>
         /// Return a tile in index x,y
         /// </summary>
         /// <param name="x">width index</param>
         /// <param name="y">hight index</param>
         /// <returns>A tile in index x,y, or null if index is not valid</returns>
-        public Tile? GetTile(int x, int y)
+        Tile? GetTile(int x, int y)
         {
             if (!IsValidTile(x, y)) return null;
             return _tiles[x, y];
