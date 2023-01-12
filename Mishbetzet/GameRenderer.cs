@@ -181,6 +181,19 @@
     }
 }
 
+#region Mashocist Attempt
+/* 1. Accept new tile size in a Vector2 / width and hieght of each tile () 
+ * 2. New tile raws will be used only when you the program will reach the end of the tile height
+ * f.e if new tile size have the height of 4 tile (1,0) will be written in the 4th int i of for loop
+ * 
+ * figure out away to complment the current system that wont break it
+ * Think about using Vector 2 Multiply to determin the tile size
+ * if the client wil change the tile size the minimun size will be 2*2
+ * Find a way to allways center the gameobject : )
+ */
+#endregion
+
+
 // After Generic lesson i have to ideas to further expaned on this 
 // maybe this Can accept generic where is : IRenderable or something
 // then anything that will be consider renderable or IScaleable can be  
