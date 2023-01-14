@@ -10,6 +10,7 @@
         /// </summary>
         string[,] _engineTileMap;
 
+        TileLoc myLoc;
 
         int _individualeTileWidth;
         int _individualeTileHeight;
@@ -46,7 +47,6 @@
             KLetter
         }
 
-
         #region ChangeSpecificTile overload
         /// <summary>
         /// Changes specific tile color *W I P*
@@ -54,7 +54,7 @@
         /// <param name="tile">The desired tile to set changes</param>
         /// <param name="color">The selected color for the tile</param>
         /// <param name="foreground">true = foreground, false = background</param>
-        public void ChangeSpecificTile(Tile tile,ConsoleColor color,bool foreground)
+        public void ChangeSpecificTile(Tile tile, ConsoleColor color, bool foreground)
         {
             _initChanges = true;
             if (foreground)
@@ -98,22 +98,18 @@
             _width *= width;
             _engineTileMap = new string[_width, _height];
 
-            bool onTop = true;
-            bool topSwitch = false;
+            int widthCount = 0;
+            int heightCount = 0;
 
             for (int i = 0; i < _height; i++)
             {
+                bool onTopOrBottom = i % height == 0;
+                if (onTopOrBottom) heightCount++;
                 for (int j = 0; j < _width; j++)
                 {
-                    bool b1 = i % width == 0;
-                    bool b2 = j % height == 0;
-
-                    if (b1 && b2)
-                    {
-                        topSwitch = true;
-                    }
-                }
-
+                    bool onEitherSide = j % width == 0;
+                    if (onEitherSide) widthCount++;
+                }   
             }
         }
 
@@ -179,18 +175,18 @@
             }
             else
             {
-            switch (gameObjectLooks)
-            {
-                case DefualtGameObject.OLetter:
-                    m = "O";
-                    break;
-                case DefualtGameObject.Zero:
-                    m = "0";
-                    break;
-                case DefualtGameObject.KLetter:
-                    m = "K";
-                    break;
-            }
+                switch (gameObjectLooks)
+                {
+                    case DefualtGameObject.OLetter:
+                        m = "O";
+                        break;
+                    case DefualtGameObject.Zero:
+                        m = "0";
+                        break;
+                    case DefualtGameObject.KLetter:
+                        m = "K";
+                        break;
+                }
             }
 
 
