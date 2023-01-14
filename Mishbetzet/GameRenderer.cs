@@ -88,7 +88,7 @@
             if (_height < 3 || _width < 3)
             {
                 Console.WriteLine("Both tile height and width have to be bigger or equals to 3");
-                Console.WriteLine("The rendered tilemap will stay the same is the initial size");
+                Console.WriteLine("The rendered tilemap will stay the same (initial size)");
                 return;
             }
 
@@ -104,17 +104,17 @@
             for (int i = 0; i < _height; i++)
             {
                 yBoundary = i % height == 0;
-                yEndZone = i + 1 % height == 0;
+                yEndZone = (i + 1) % height == 0;
                 for (int j = 0; j < _width; j++)
                 {
                     xBoundary = j % width == 0;
-                    xEndZone = j + 1 % width == 0;
-                    _engineTileMap[j,i] = Noder(yBoundary, xBoundary, yEndZone, xEndZone);
+                    xEndZone = (j + 1) % width == 0;
+                    _engineTileMap[j,i] = DetermineStringBySize(yBoundary, xBoundary, yEndZone, xEndZone);
                 }
             }
         }
 
-        string Noder(bool ybound,bool xbound,bool yend, bool xend)
+        string DetermineStringBySize(bool ybound,bool xbound,bool yend, bool xend)
         {
             if (ybound && xbound)
             {
@@ -132,17 +132,17 @@
             {
                 return "╝";
             }
-            if (ybound)
+            if (ybound || yend)
             {
                 return "═";
             }
-            if (xbound) 
+            if (xbound || xend) 
             {
                 return "║";
             }
             else
             {
-                return " ";
+                return "s"; // will represent the character for now
             }
         }
 
