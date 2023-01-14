@@ -10,8 +10,6 @@
         /// </summary>
         string[,] _engineTileMap;
 
-        TileLoc myLoc;
-
         int _individualeTileWidth;
         int _individualeTileHeight;
 
@@ -98,18 +96,53 @@
             _width *= width;
             _engineTileMap = new string[_width, _height];
 
-            int widthCount = 0;
-            int heightCount = 0;
+            bool yBoundary;
+            bool xBoundary;
+            bool yEndZone;
+            bool xEndZone;
 
             for (int i = 0; i < _height; i++)
             {
-                bool onTopOrBottom = i % height == 0;
-                if (onTopOrBottom) heightCount++;
+                yBoundary = i % height == 0;
+                yEndZone = i + 1 % height == 0;
                 for (int j = 0; j < _width; j++)
                 {
-                    bool onEitherSide = j % width == 0;
-                    if (onEitherSide) widthCount++;
-                }   
+                    xBoundary = j % width == 0;
+                    xEndZone = j + 1 % width == 0;
+                    _engineTileMap[j,i] = Noder(yBoundary, xBoundary, yEndZone, xEndZone);
+                }
+            }
+        }
+
+        string Noder(bool ybound,bool xbound,bool yend, bool xend)
+        {
+            if (ybound && xbound)
+            {
+                return "╔";
+            }
+            if (ybound && xend)
+            {
+                return "╗";
+            }
+            if (yend && xbound)
+            {
+                return "╚";
+            }
+            if (yend && xend)
+            {
+                return "╝";
+            }
+            if (ybound)
+            {
+                return "═";
+            }
+            if (xbound) 
+            {
+                return "║";
+            }
+            else
+            {
+                return " ";
             }
         }
 
