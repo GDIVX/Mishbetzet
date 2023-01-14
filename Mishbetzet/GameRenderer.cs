@@ -10,6 +10,10 @@
         /// </summary>
         string[,] _engineTileMap;
 
+
+        int _individualeTileWidth;
+        int _individualeTileHeight;
+
         int _width;
         int _height;
 
@@ -75,6 +79,44 @@
              * you/client choose to do 
              */
         }
+
+        /// <summary>
+        /// Changes the tile size into the desired size
+        /// </summary>
+        /// <param name="height">Will resize the tile height, minimun of 3</param>
+        /// <param name="width">Will resize the tile width, minimun of 3</param>
+        void ChangeTileSize(int height, int width)
+        {
+            if (_height < 3 || _width < 3)
+            {
+                Console.WriteLine("Both tile height and width have to be bigger or equals to 3");
+                Console.WriteLine("The rendered tilemap will stay the same is the initial size");
+                return;
+            }
+
+            _height *= height;
+            _width *= width;
+            _engineTileMap = new string[_width, _height];
+
+            bool onTop = true;
+            bool topSwitch = false;
+
+            for (int i = 0; i < _height; i++)
+            {
+                for (int j = 0; j < _width; j++)
+                {
+                    bool b1 = i % width == 0;
+                    bool b2 = j % height == 0;
+
+                    if (b1 && b2)
+                    {
+                        topSwitch = true;
+                    }
+                }
+
+            }
+        }
+
         #endregion
 
 
