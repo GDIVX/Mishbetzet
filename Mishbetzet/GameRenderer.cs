@@ -10,9 +10,6 @@
         /// </summary>
         string[,] _engineTileMap;
 
-        int _individualeTileWidth;
-        int _individualeTileHeight;
-
         int _width;
         int _height;
 
@@ -114,6 +111,14 @@
             }
         }
 
+        /// <summary>
+        /// Factors all the booleans into a big if switch machine that determine which string should be used
+        /// </summary>
+        /// <param name="ybound">Current location point on the begining of the new tile row?</param>
+        /// <param name="xbound">Current location point on the begining of the new tile col?</param>
+        /// <param name="yend">Current location point on the end of the new tile row?</param>
+        /// <param name="xend">Current location point on the end of the new tile col?</param>
+        /// <returns></returns>
         string DetermineStringBySize(bool ybound,bool xbound,bool yend, bool xend)
         {
             if (ybound && xbound)
@@ -142,7 +147,7 @@
             }
             else
             {
-                return "s"; // will represent the character for now
+                return "s"; // will represent the character/gameobject
             }
         }
 
