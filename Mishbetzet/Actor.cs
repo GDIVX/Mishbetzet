@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class Actor
+    public class Actor
     {
         List<Tile> tiles;
         List<GameObject> gameObjects;

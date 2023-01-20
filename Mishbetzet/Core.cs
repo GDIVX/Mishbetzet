@@ -25,15 +25,12 @@ namespace Mishbetzet
             Tilemap = tilemap;
         }
 
-        public void AddTile(int x, int y)
-        {
-            Tilemap.AddTile(x, y);
-        }
+        //public void AddTile(int x, int y)
+        //{
+        //    Tilemap.AddTile(x, y);
+        //}
 
-        public GameObject CreateGameObject(Tile tile)
-        {
-            return GameObject.Create(tile);
-        }
+    
 
         public override void Play()
         {

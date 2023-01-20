@@ -7,69 +7,47 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal abstract class GameObject : IMovable, ICloneable
+    public abstract class GameObject : IMovable, ICloneable
     {
         Tile _currentTile;
         Actor _actor;
-        int _amountOfStepsPossible; //if null then endless
+        /// <summary>
+        /// The distance the game object is allowed to move per turn. 
+        /// </summary>
+        public int MovementRange { get; set; }
+        public int RemainingSteps { get; set; }
 
 
         public Tile Tile { get => _currentTile; set => _currentTile = value; }
-        public Actor ObjectController { get => _actor; private set => _actor = value; }
+        public Actor Actor { get => _actor; private set => _actor = value; }
 
 
-        public event Action OnStep; //should be called when gameobject finished moving? i dunno it was in the brief
-                                    
+        public event Action OnStep;
 
-        public event Action<GameObject> OnPassOver; //should be called if a game object steps on a tile without finishing his move function,
-                                                    //meaning he did not land on the tile, just passed over it.
 
-        public GameObject(Actor actor) //ctor must contain an actor because "all gameobjects need to belong to an actor"
+        //should be called if a game object steps on a tile without finishing his move function,
+        //meaning he did not land on the tile, just passed over it.
+        public event Action<GameObject> OnPassOver;
+
+        //ctor must contain an actor because "all gameobjects need to belong to an actor"
+        internal GameObject(Actor actor, Tile tile)
         {
-            _actor = actor;
+            Actor = actor;
+            Tile = tile;
         }
 
 
-        public abstract void Move(); //does x amount of steps with rules
+        //does x amount of steps with rules
+        public abstract void Move();
 
-        public abstract void Step(StepDirection targetStep); //onstep should contain one tile movement in any direction
-        //{                                                  //based on the move logic for each game object. for example moves in stepdirection North (N) so y--
-        //    switch(targetStep)
-        //    {
-        //        case StepDirection.N:
-        //            //check if can move up
-        //            //TODO move up
-        //            break;
-        //    }
-        //}
 
-        public abstract object Clone();
-        //{
-        //    var clone = new GameObject(_controller); //?????????? :)
-        //    clone.Tile = _currentTile;
-        //    clone.OnStep = OnStep;
-        //    clone.OnPassOver = OnPassOver;
-        //    return clone;
-        //}
+        //onstep should contain one tile movement in any direction
+        //based on the move logic for each game object. for example moves in stepdirection North (N) so y--
+        public abstract void Step(Point direction);
 
-        public enum StepDirection //each step can only be in one of these directions
+        object ICloneable.Clone()
         {
-            N,
-            S,
-            E,
-            W,
-            NE,
-            NW,
-            SE,
-            SW
+            throw new NotImplementedException();
         }
-
-
-        //public static GameObject Create(Tile tile)
-        //{
-        //    GameObject gameObject = new();
-        //    gameObject.Tile = tile;
-        //    return gameObject;
-        //}
     }
 }
