@@ -29,13 +29,19 @@ namespace Mishbetzet
         //meaning he did not land on the tile, just passed over it.
         public event Action<GameObject> OnPassOver;
 
-        //ctor must contain an actor because "all gameobjects need to belong to an actor"
         internal GameObject(Actor actor, Tile tile)
         {
             Actor = actor;
             Tile = tile;
+            Start();
         }
 
+        public virtual void Update()
+        {
+
+        }
+
+        public virtual void Start() { }
 
         //does x amount of steps with rules
         public abstract void Move();

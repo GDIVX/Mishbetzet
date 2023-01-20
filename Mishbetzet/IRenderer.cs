@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal interface IRender
+    public interface IRenderer
     {
-        //TODO add a method to render the object
     }
 }
