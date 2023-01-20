@@ -3,12 +3,12 @@
     /// <summary>
     /// Renders the game.
     /// </summary>
-    internal class GameRenderer
+    internal class GameRenderer : IRenderer
     {
         string _tileLeftEdge = "[";
         string _tileRightEdge = "]";
 
-        public GameRenderer(Tilemap tilemap)
+        internal void Render(Tilemap tilemap)
         {
             for (int i = 0; i < tilemap.Height; i++)
             {
@@ -21,6 +21,7 @@
                 Console.WriteLine();
             }
             Console.ForegroundColor = ConsoleColor.White;
+            
         }
 
         enum TileStyle

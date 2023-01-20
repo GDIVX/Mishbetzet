@@ -9,7 +9,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Tilemap tileMap = new(10,4);
-        GameRenderer gameRenderer = new GameRenderer(tileMap);
+        Core coreEngine = new();
+        coreEngine.CreateTileMap(10, 10);
+        coreEngine.Run();
     }
 }
