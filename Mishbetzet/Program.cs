@@ -9,8 +9,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Core coreEngine = new();
-        coreEngine.CreateTileMap(10, 10);
-        coreEngine.Run();
+        Core.Main.CreateTileMap(10, 10);
+        Core.Main.Run();
     }
 }

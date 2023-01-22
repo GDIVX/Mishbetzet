@@ -19,10 +19,19 @@ namespace Mishbetzet
             _tiles = new Tile[width, height];
         }
 
+
+        #region Tiles Accessors
         public Tile? this[int x, int y]
         {
             get => GetTile(x, y);
         }
+
+        public Tile? GetTile(Point point)
+        {
+            return this[point.X, point.Y];
+        }
+
+        #endregion
 
         /// <summary>
         /// Return a tile in index x,y
