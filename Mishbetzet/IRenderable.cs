@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mishbetzet;
 
-class Program
+namespace Mishbetzet
 {
-    static void Main(string[] args)
+    internal interface IRenderable
     {
-        Core.Main.CreateTileMap(10, 10);
-        Core.Main.Run();
+        internal IRenderer GetRenderer();
     }
 }

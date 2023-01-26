@@ -8,7 +8,7 @@ namespace Mishbetzet
 {
     public abstract class Engine
     {
-        public abstract void Play();
+        public abstract void Run();
         public abstract bool IsRunning { get; }
         public abstract void Stop();
         

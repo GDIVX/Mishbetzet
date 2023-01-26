@@ -9,40 +9,133 @@ namespace Mishbetzet
     /// <summary>
     /// The core interface for the engine
     /// </summary>
-    public class Core : Engine , IRender
+    public class Core : Engine
     {
-        public Tilemap Tilemap { get; private set; }
+        static Core _instance;
 
+        /// <summary>
+        /// Singelton for the core engine
+        /// </summary>
+        public static Core Main
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new();
+                }
+
+                return _instance;
+            }
+        }
+        public Tilemap? Tilemap { get; private set; }
         public override bool IsRunning => _isRunning;
 
         public event Action? onEngineStart;
         public event Action? onEngineStop;
 
+        private List<Actor> _actorsInPlay = new();
+        private List<GameObject> _gameObjects = new();
+
+        GameRenderer renderer;
         bool _isRunning = false;
 
-        public Core(Tilemap tilemap)
+        public Core()
         {
-            Tilemap = tilemap;
+            renderer = new();
         }
 
-        public void AddTile(int x, int y)
+        #region Factories
+
+        /// <summary>
+        /// Creates a tilemap with the given width and height
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public void CreateTileMap(int width, int height)
         {
-            Tilemap.AddTile(x, y);
+            Tilemap = new(width, height);
         }
 
-        public GameObject CreateGameObject(Tile tile)
+        /// <summary>
+        /// Create a tile and add it to <see cref="Tilemap"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="position"></param>
+        /// <exception cref="Exception"></exception>
+        public void CreateTile<T>(Point position) where T : Tile
         {
-            return GameObject.Create(tile);
+            if (Tilemap == null)
+            {
+                throw new Exception("Tilemap is not initialized");
+            }
+
+            var tile = Activator.CreateInstance(typeof(T), position) as Tile;
+            if (tile == null)
+            {
+                throw new Exception($"Tile creation failed for type {typeof(T)}");
+            }
+            Tilemap.AddTile(tile);
         }
 
-        public override void Play()
+        public GameObject CreateGameObject<T>(Actor owner, Tile tile) where T : GameObject
         {
+            if (owner is null)
+            {
+                throw new ArgumentNullException(nameof(owner));
+            }
+
+            if (tile is null)
+            {
+                throw new ArgumentNullException(nameof(tile));
+            }
+
+            var gameObject = Activator.CreateInstance(typeof(T)) as GameObject;
+
+            if (gameObject == null)
+            {
+                throw new Exception($"Cannot create a game object of type {typeof(T)} ");
+            }
+
+            owner.AddGameObject(gameObject);
+            gameObject.SetTile(tile);
+
+            return gameObject;
+
+        }
+        #endregion
+
+
+        /// <summary>
+        /// Called at the start
+        /// </summary>
+        public override void Run()
+        {
+
             onEngineStart?.Invoke();
+
+            if (Tilemap == null) return;
+            renderer.Render(Tilemap);
+
+            Update();
+        }
+
+        /// <summary>
+        /// Called every turn to update the game state
+        /// </summary>
+        public void Update()
+        {
+            if (Tilemap == null) return;
+            renderer.Render(Tilemap);
+
+            //TODO - create a list of all game objects and call update on them
         }
 
         public override void Stop()
         {
             onEngineStop?.Invoke();
         }
+
+
     }
 }
