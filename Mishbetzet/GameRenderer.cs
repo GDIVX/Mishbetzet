@@ -1,5 +1,14 @@
 ﻿namespace Mishbetzet
 {
+    public enum TileStyle
+    {
+        Square,
+        Curly,
+        Parenthesis,
+        LessGreater
+    }
+
+
     /// <summary>
     /// Renders the game.
     /// </summary>
@@ -27,13 +36,13 @@
             InitialCreation(tilemap);
         }
 
-        public enum TileStyle
-        {
-            Square,
-            Curly,
-            Parenthesis,
-            LessGreater
-        }
+        //public enum TileStyle
+        //{
+        //    Square,
+        //    Curly,
+        //    Parenthesis,
+        //    LessGreater
+        //}
 
         public enum DefualtGameObject
         {

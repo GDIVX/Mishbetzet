@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    public abstract class GameObject : IMovable, ICloneable
+    public abstract class GameObject : IMovable, ICloneable, IRenderable<GameObject>
     {
         Tile _currentTile;
         Actor _actor;

@@ -1,6 +1,6 @@
 ﻿namespace Mishbetzet
 {
-    public abstract class Tile
+    public abstract class Tile : IRenderable<Tile>
     {
         public GameObject gameObject { get; set; }
         public Actor? Actor { get; set; }
@@ -22,7 +22,6 @@
         {
             return $"{Position.X}, {Position.Y}";
         }
-
 
     }
 }
