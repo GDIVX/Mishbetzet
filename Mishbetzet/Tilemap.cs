@@ -62,56 +62,12 @@ namespace Mishbetzet
 
         public IEnumerator<Tile> GetEnumerator()
         {
-            return SpiralEnumerator();
+            return new ISpiralEnumerator<Tile>(_tiles);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-
-        public IEnumerator<Tile> SpiralEnumerator()
-        {
-            int x = 0;
-            int y = 0;
-            int steps = 1;
-            int loop = Height > Width ? Height : Width;
-
-            for (int l = 0; l < loop; l++)
-            {
-                yield return _tiles[x, y]; //checks initial tile
-                for (int i = 0; i < steps; i++)
-                {
-                    x -= steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-                for (int i = 0; i < steps; i++)
-                {
-                    y -= steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-
-                steps++;
-
-                for (int i = 0; i < steps; i++)
-                {
-                    x += steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-                for (int i = 0; i < steps; i++)
-                {
-                    y += steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-
-                steps++;
-            }
-        }
-
-
     }
 }
