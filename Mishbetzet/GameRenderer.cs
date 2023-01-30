@@ -105,7 +105,6 @@
             Console.BackgroundColor = _bgColor;
             for (int i = 0; i < _height; i++)
             {
-                    Console.Write(i);
                 for (int j = 0; j < _width; j++)
                 {
                     Console.Write(_engineTileMap[j, i]);
@@ -121,7 +120,6 @@
             Console.BackgroundColor = _bgColor;
             for (int i = 0; i < _height; i++)
             {
-                Console.Write(i);
                 for (int j = 0; j < _width; j++)
                 {
                     Console.Write(_engineTileMap[j, i]);
