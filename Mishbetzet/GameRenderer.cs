@@ -7,6 +7,12 @@
         Parenthesis,
         LessGreater
     }
+    public enum DefualtGameObject
+    {
+        OLetter,
+        Zero,
+        KLetter
+    }
 
 
     /// <summary>
@@ -44,12 +50,6 @@
         //    LessGreater
         //}
 
-        public enum DefualtGameObject
-        {
-            OLetter,
-            Zero,
-            KLetter
-        }
 
 
         #region ChangeSpecificTile overload
@@ -59,14 +59,13 @@
         /// <param name="tile">The desired tile to set changes</param>
         /// <param name="color">The selected color for the tile</param>
         /// <param name="foreground">true = foreground, false = background</param>
-        public void ChangeSpecificTile(Tile tile,ConsoleColor color,bool foreground)
+        public void ChangeSpecificTile(Tile tile, ConsoleColor color, bool foreground)
         {
             _initChanges = true;
             if (foreground)
             {
                 return;
             }
-
         }
 
         /// <summary>
@@ -77,6 +76,7 @@
         public void ChangeSpecificTile(Tile tile, TileStyle tilestyle)
         {
             _initChanges = true;
+
             /* 
              * Make sure to understand where this tile is located
              * use point to do so
@@ -161,18 +161,18 @@
             }
             else
             {
-            switch (gameObjectLooks)
-            {
-                case DefualtGameObject.OLetter:
-                    m = "O";
-                    break;
-                case DefualtGameObject.Zero:
-                    m = "0";
-                    break;
-                case DefualtGameObject.KLetter:
-                    m = "K";
-                    break;
-            }
+                switch (gameObjectLooks)
+                {
+                    case DefualtGameObject.OLetter:
+                        m = "O";
+                        break;
+                    case DefualtGameObject.Zero:
+                        m = "0";
+                        break;
+                    case DefualtGameObject.KLetter:
+                        m = "K";
+                        break;
+                }
             }
 
 
