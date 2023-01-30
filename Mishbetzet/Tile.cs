@@ -23,6 +23,5 @@
             return $"{Position.X}, {Position.Y}";
         }
 
-
     }
 }

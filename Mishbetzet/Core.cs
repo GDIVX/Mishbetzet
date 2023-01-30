@@ -42,7 +42,7 @@ namespace Mishbetzet
 
         public Core()
         {
-            renderer = new();
+
         }
 
         #region Factories
@@ -55,6 +55,7 @@ namespace Mishbetzet
         public void CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
+            renderer = new(Tilemap);
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace Mishbetzet
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Render(Tilemap);
+            renderer.Print();
 
             Update();
         }
@@ -126,7 +127,8 @@ namespace Mishbetzet
         public void Update()
         {
             if (Tilemap == null) return;
-            renderer.Render(Tilemap);
+
+            renderer.Update();
 
             //TODO - create a list of all game objects and call update on them
         }
