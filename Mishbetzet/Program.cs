@@ -28,7 +28,7 @@ class Program
         }
 
         //Create an actor
-        var actor = Core.Main.CreateActor();
+        var actor = Core.Main.CreateActor<ChessActor>();
 
         //Create a game object for each tile
         foreach (var tile in tilemap)
@@ -37,6 +37,7 @@ class Program
             Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
         }
 
+        Core.Main.TurnManager.StartTurn();
     }
 }
 
@@ -52,5 +53,17 @@ public class BaseTile : Tile
 {
     public BaseTile(Point position) : base(position)
     {
+    }
+}
+
+public class ChessActor : TurnTrackedActor
+{
+    public ChessActor() : base()
+    {
+    }
+
+    public override void StartTurn()
+    {
+        Console.WriteLine("Doing chess stuff");
     }
 }

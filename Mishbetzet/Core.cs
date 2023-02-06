@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mishbetzet.Turns;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace Mishbetzet
             }
         }
         public Tilemap? Tilemap { get; private set; }
+        public TurnManager TurnManager { get; private set; } = new();
         public override bool IsRunning => _isRunning;
 
         public event Action? onEngineStart;
@@ -95,7 +97,7 @@ namespace Mishbetzet
             if (gameObject == null)
             {
                 throw new Exception($"Cannot create a game object of type {typeof(T)} ");
-            } 
+            }
             #endregion
 
             gameObject.SetTile(tile);
@@ -110,6 +112,18 @@ namespace Mishbetzet
             var actor = new Actor();
             _actorsInPlay.Add(actor);
             return actor;
+        }
+
+        public Actor? CreateActor<T>() where T : Actor
+        {
+            var actor = Activator.CreateInstance(typeof(T));
+
+            if (actor is Actor act)
+            {
+                _actorsInPlay.Add(act);
+                return act;
+            }
+            return null;
         }
         #endregion
 
