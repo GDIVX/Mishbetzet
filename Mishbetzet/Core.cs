@@ -40,10 +40,6 @@ namespace Mishbetzet
         GameRenderer renderer;
         bool _isRunning = false;
 
-        public Core()
-        {
-
-        }
 
         #region Factories
 
@@ -52,10 +48,11 @@ namespace Mishbetzet
         /// </summary>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public void CreateTileMap(int width, int height)
+        public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
             renderer = new(Tilemap);
+            return Tilemap;
         }
 
         /// <summary>
@@ -81,6 +78,8 @@ namespace Mishbetzet
 
         public GameObject CreateGameObject<T>(Actor owner, Tile tile) where T : GameObject
         {
+
+            #region NULL_CHECKS
             if (owner is null)
             {
                 throw new ArgumentNullException(nameof(owner));
@@ -96,13 +95,21 @@ namespace Mishbetzet
             if (gameObject == null)
             {
                 throw new Exception($"Cannot create a game object of type {typeof(T)} ");
-            }
+            } 
+            #endregion
 
-            owner.AddGameObject(gameObject);
             gameObject.SetTile(tile);
+            owner.AddGameObject(gameObject);
 
             return gameObject;
 
+        }
+
+        public Actor CreateActor()
+        {
+            var actor = new Actor();
+            _actorsInPlay.Add(actor);
+            return actor;
         }
         #endregion
 
