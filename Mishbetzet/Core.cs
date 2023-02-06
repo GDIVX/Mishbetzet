@@ -37,7 +37,7 @@ namespace Mishbetzet
         private List<Actor> _actorsInPlay = new();
         private List<GameObject> _gameObjects = new();
 
-        GameRenderer renderer;
+        ConsoleRenderer renderer;
         bool _isRunning = false;
 
         public Core()

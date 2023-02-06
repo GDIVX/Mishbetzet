@@ -18,7 +18,7 @@
     /// <summary>
     /// Renders the game.
     /// </summary>
-    internal class GameRenderer
+    internal class ConsoleRenderer
     {
         /// <summary>
         /// Tile map the render engine creates to facilitate any possable changes
@@ -34,7 +34,7 @@
         ConsoleColor _bgColor = ConsoleColor.Black;
 
 
-        public GameRenderer(Tilemap tilemap)
+        public ConsoleRenderer(Tilemap tilemap)
         {
             _height = tilemap.Height;
             _width = tilemap.Width;
