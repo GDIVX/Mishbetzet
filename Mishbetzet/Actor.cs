@@ -11,14 +11,24 @@ namespace Mishbetzet
         internal List<Tile> tiles;
         internal List<GameObject> gameObjects;
 
+        public Actor()
+        {
+            tiles = new List<Tile>();
+            gameObjects = new List<GameObject>();
+        }
+
         /// <summary>
         /// Add a tile to the actor
         /// </summary>
         /// <param name="tile"></param>
         public void AddTile(Tile tile)
         {
+            if(tile != null)
+            {
+
             tile.Actor = this;
             tiles.Add(tile);
+            }
         }
 
         /// <summary>

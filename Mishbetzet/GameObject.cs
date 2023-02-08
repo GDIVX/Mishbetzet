@@ -21,6 +21,11 @@ namespace Mishbetzet
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
+        public GameObject(Actor actor)
+        {
+            _actor = actor;
+            _actor.AddGameObject(this);
+        }
 
         public event Action OnStep;
 
@@ -93,6 +98,11 @@ namespace Mishbetzet
         object ICloneable.Clone()
         {
             throw new NotImplementedException();
+        }
+
+        public void PrintPos()
+        {
+            Console.WriteLine(Tile.Position);
         }
     }
 }

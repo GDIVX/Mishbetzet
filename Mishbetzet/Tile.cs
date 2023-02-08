@@ -20,7 +20,7 @@
 
         public override string ToString()
         {
-            return $"{Position.X}, {Position.Y}";
+            return $"{Position.X}, {Position.Y}, object: {gameObject}";
         }
 
 
