@@ -16,24 +16,19 @@ class Program
         Actor a2= new Actor();
         Core.Main.CreateTileMap(10, 10);
         //Core.Main.Run();
-        Tilemap tmap = Core.Main.Tilemap;
-        for (int i = 0; i < tmap.Height; i++)
-        {
-            for (int j = 0; j < tmap.Width; j++)
-            {
-                Core.Main.Tilemap.AddTile(new BasicTile(new Point(j, i)));
-            }
-        }
+        Core.Main.Tilemap.FillMapBasic();
 
 
-
-        BasicGameObject bgo= new BasicGameObject(a1);
+        BasicGameObject bgo = new BasicGameObject(a1);
         //Console.WriteLine(bgo.ToString());
         //bgo.SetTile(Core.Main.Tilemap[0, 0]);
 
-        //foreach(var t in Core.Main.Tilemap)
-        //{
-        //    Console.WriteLine(t.ToString());
-        //}
+        Core.Main.Tilemap[0, 0].SetGameObject(bgo);
+        bgo.Move(Point.SouthEast);
+
+        foreach (var t in Core.Main.Tilemap)
+        {
+            Console.WriteLine(t.ToString());
+        }
     }
 }

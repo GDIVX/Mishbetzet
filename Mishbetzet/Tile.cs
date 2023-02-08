@@ -17,6 +17,11 @@
 
         #endregion
 
+        public void SetGameObject(GameObject newGameObject)
+        {
+            this.gameObject = newGameObject;
+            newGameObject.SetTile(this);
+        }
 
         public override string ToString()
         {
