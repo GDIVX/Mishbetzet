@@ -12,9 +12,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Core.Main.CreateTileMap(10, 10);
+        //Sanity check to make sure the engine is working
+
+        //Create a tile map
+        var tilemap = Core.Main.CreateTileMap(10, 10);
 
 
+        //Populate the tile map with tiles
         for (int x = 0; x < 10; x++)
         {
             for (int y = 0; y < 10; y++)
@@ -23,12 +27,17 @@ class Program
             }
         }
 
-        foreach (var tile in Core.Main.Tilemap)
+        //Create an actor
+        var actor = Core.Main.CreateActor<ChessActor>();
+
+        //Create a game object for each tile
+        foreach (var tile in tilemap)
         {
             Console.WriteLine(tile);
-            Core.Main.CreateGameObject<BaseGameObject>(tile);
+            Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
         }
-        
+
+        Core.Main.TurnManager.StartTurn();
     }
 }
 
@@ -44,5 +53,17 @@ public class BaseTile : Tile
 {
     public BaseTile(Point position) : base(position)
     {
+    }
+}
+
+public class ChessActor : TurnTrackedActor
+{
+    public ChessActor() : base()
+    {
+    }
+
+    public override void StartTurn()
+    {
+        Console.WriteLine("Doing chess stuff");
     }
 }

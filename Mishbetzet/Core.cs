@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mishbetzet.Turns;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace Mishbetzet
             }
         }
         public Tilemap? Tilemap { get; private set; }
+        public TurnManager TurnManager { get; private set; } = new();
         public override bool IsRunning => _isRunning;
 
         public event Action? onEngineStart;
@@ -40,10 +42,6 @@ namespace Mishbetzet
         GameRenderer renderer;
         bool _isRunning = false;
 
-        public Core()
-        {
-
-        }
 
         #region Factories
 
@@ -52,10 +50,11 @@ namespace Mishbetzet
         /// </summary>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public void CreateTileMap(int width, int height)
+        public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
             renderer = new(Tilemap);
+            return Tilemap;
         }
 
         /// <summary>
@@ -81,6 +80,8 @@ namespace Mishbetzet
 
         public GameObject CreateGameObject<T>(Actor owner, Tile tile) where T : GameObject
         {
+
+            #region NULL_CHECKS
             if (owner is null)
             {
                 throw new ArgumentNullException(nameof(owner));
@@ -97,12 +98,32 @@ namespace Mishbetzet
             {
                 throw new Exception($"Cannot create a game object of type {typeof(T)} ");
             }
+            #endregion
 
-            owner.AddGameObject(gameObject);
             gameObject.SetTile(tile);
+            owner.AddGameObject(gameObject);
 
             return gameObject;
 
+        }
+
+        public Actor CreateActor()
+        {
+            var actor = new Actor();
+            _actorsInPlay.Add(actor);
+            return actor;
+        }
+
+        public Actor? CreateActor<T>() where T : Actor
+        {
+            var actor = Activator.CreateInstance(typeof(T));
+
+            if (actor is Actor act)
+            {
+                _actorsInPlay.Add(act);
+                return act;
+            }
+            return null;
         }
         #endregion
 
