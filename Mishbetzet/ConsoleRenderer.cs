@@ -14,7 +14,6 @@
         KLetter
     }
 
-
     /// <summary>
     /// Renders the game.
     /// </summary>
