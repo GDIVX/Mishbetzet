@@ -39,7 +39,7 @@ namespace Mishbetzet
         private List<Actor> _actorsInPlay = new();
         private List<GameObject> _gameObjects = new();
 
-        ConsoleRenderer renderer;
+        IRenderer renderer;
         bool _isRunning = false;
 
 
@@ -53,7 +53,7 @@ namespace Mishbetzet
         public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
-            renderer = new(Tilemap);
+            renderer = new ConsoleRenderer(Tilemap);
             return Tilemap;
         }
 
@@ -137,7 +137,7 @@ namespace Mishbetzet
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Print();
+            renderer.Render();
 
             Update();
         }

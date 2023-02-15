@@ -18,7 +18,7 @@
     /// <summary>
     /// Renders the game.
     /// </summary>
-    internal class ConsoleRenderer
+    internal class ConsoleRenderer : IRenderer 
     {
         /// <summary>
         /// Tile map the render engine creates to facilitate any possable changes
@@ -132,16 +132,17 @@
         /// A meathod the creats an initial tileMap of renders
         /// </summary>
         /// <param name="tilemap"></param>
-        void InitialCreation(Tilemap tilemap)
-        {
-            for (int i = 0; i < tilemap.Height; i++)
-            {
-                for (int j = 0; j < tilemap.Width; j++)
-                {
-                    _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
-                }
-            }
-        }
+        
+        //void InitialCreation(Tilemap tilemap)
+        //{
+        //    for (int i = 0; i < tilemap.Height; i++)
+        //    {
+        //        for (int j = 0; j < tilemap.Width; j++)
+        //        {
+        //            _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// A method incharge of getting spcific tile look
@@ -201,6 +202,31 @@
             }
 
             return f + m + l;
+        }
+
+        public void Render()
+        {
+            Console.ForegroundColor = _fgColor;
+            Console.BackgroundColor = _bgColor;
+            for (int i = 0; i < _height; i++)
+            {
+                for (int j = 0; j < _width; j++)
+                {
+                    Console.Write(_engineTileMap[j, i]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void InitialCreation(Tilemap tilemap)
+        {
+            for (int i = 0; i < tilemap.Height; i++)
+            {
+                for (int j = 0; j < tilemap.Width; j++)
+                {
+                    _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
+                }
+            }
         }
     }
 }
