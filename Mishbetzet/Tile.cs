@@ -1,11 +1,13 @@
 ﻿namespace Mishbetzet
 {
-    public abstract class Tile
+    public abstract class Tile : IRenderable
     {
         public GameObject gameObject { get; set; }
         public Actor? Actor { get; set; }
 
         public Point Position { get; set; }
+
+        public Point RednerablePoint => Position;
 
         #region constructors
         public Tile(Point position)
