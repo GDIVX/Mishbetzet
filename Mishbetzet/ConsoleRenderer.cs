@@ -7,12 +7,18 @@
         Parenthesis,
         LessGreater
     }
+    public enum DefualtGameObject
+    {
+        OLetter,
+        Zero,
+        KLetter
+    }
 
 
     /// <summary>
     /// Renders the game.
     /// </summary>
-    internal class GameRenderer
+    internal class ConsoleRenderer : IRenderer 
     {
         /// <summary>
         /// Tile map the render engine creates to facilitate any possable changes
@@ -28,7 +34,7 @@
         ConsoleColor _bgColor = ConsoleColor.Black;
 
 
-        public GameRenderer(Tilemap tilemap)
+        public ConsoleRenderer(Tilemap tilemap)
         {
             _height = tilemap.Height;
             _width = tilemap.Width;
@@ -44,12 +50,6 @@
         //    LessGreater
         //}
 
-        public enum DefualtGameObject
-        {
-            OLetter,
-            Zero,
-            KLetter
-        }
 
 
         #region ChangeSpecificTile overload
@@ -59,14 +59,13 @@
         /// <param name="tile">The desired tile to set changes</param>
         /// <param name="color">The selected color for the tile</param>
         /// <param name="foreground">true = foreground, false = background</param>
-        public void ChangeSpecificTile(Tile tile,ConsoleColor color,bool foreground)
+        public void ChangeSpecificTile(Tile tile, ConsoleColor color, bool foreground)
         {
             _initChanges = true;
             if (foreground)
             {
                 return;
             }
-
         }
 
         /// <summary>
@@ -77,6 +76,7 @@
         public void ChangeSpecificTile(Tile tile, TileStyle tilestyle)
         {
             _initChanges = true;
+
             /* 
              * Make sure to understand where this tile is located
              * use point to do so
@@ -129,21 +129,6 @@
         }
 
         /// <summary>
-        /// A meathod the creats an initial tileMap of renders
-        /// </summary>
-        /// <param name="tilemap"></param>
-        void InitialCreation(Tilemap tilemap)
-        {
-            for (int i = 0; i < tilemap.Height; i++)
-            {
-                for (int j = 0; j < tilemap.Width; j++)
-                {
-                    _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
-                }
-            }
-        }
-
-        /// <summary>
         /// A method incharge of getting spcific tile look
         /// </summary>
         /// <param name="tile"></param>
@@ -161,18 +146,18 @@
             }
             else
             {
-            switch (gameObjectLooks)
-            {
-                case DefualtGameObject.OLetter:
-                    m = "O";
-                    break;
-                case DefualtGameObject.Zero:
-                    m = "0";
-                    break;
-                case DefualtGameObject.KLetter:
-                    m = "K";
-                    break;
-            }
+                switch (gameObjectLooks)
+                {
+                    case DefualtGameObject.OLetter:
+                        m = "O";
+                        break;
+                    case DefualtGameObject.Zero:
+                        m = "0";
+                        break;
+                    case DefualtGameObject.KLetter:
+                        m = "K";
+                        break;
+                }
             }
 
 
@@ -201,6 +186,35 @@
             }
 
             return f + m + l;
+        }
+
+        public void Render()
+        {
+            Console.ForegroundColor = _fgColor;
+            Console.BackgroundColor = _bgColor;
+            for (int i = 0; i < _height; i++)
+            {
+                for (int j = 0; j < _width; j++)
+                {
+                    Console.Write(_engineTileMap[j, i]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// A meathod the creats an initial tileMap of renders
+        /// </summary>
+        /// <param name="tilemap"></param>
+        public void InitialCreation(Tilemap tilemap)
+        {
+            for (int i = 0; i < tilemap.Height; i++)
+            {
+                for (int j = 0; j < tilemap.Width; j++)
+                {
+                    _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
+                }
+            }
         }
     }
 }
