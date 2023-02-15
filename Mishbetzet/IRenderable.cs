@@ -6,27 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal interface IRenderable<T> where T : class
+    internal interface IRenderable
     {
-        public Point RenderablePoint { get; protected set; }
-        public RenderableObject RenderableObjectType { get; protected set; }
-
-        public void InitRenderable(Point point, T mySelf)
-        {
-            RenderablePoint = point;
-            switch (mySelf)
-            {
-                case Tile:
-                    RenderableObjectType = RenderableObject.Tile;
-                    break;
-                case GameObject:
-                    RenderableObjectType = RenderableObject.GameObject;
-                    break;
-            }
-        }
-        
 
     }
-
-    enum RenderableObject { Tile, GameObject }
 }

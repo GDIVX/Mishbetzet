@@ -17,6 +17,7 @@ class Program
         //Create a tile map
         var tilemap = Core.Main.CreateTileMap(10, 10);
 
+        Core.Main.Run();
 
         //Populate the tile map with tiles
         for (int x = 0; x < 10; x++)

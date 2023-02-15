@@ -41,16 +41,6 @@
             InitialCreation(tilemap);
         }
 
-        //public enum TileStyle
-        //{
-        //    Square,
-        //    Curly,
-        //    Parenthesis,
-        //    LessGreater
-        //}
-
-
-
         #region ChangeSpecificTile overload
         /// <summary>
         /// Changes specific tile color *W I P*
@@ -98,20 +88,6 @@
         /// <param name="color"></param>
         public void ChangeBackground(ConsoleColor color) => _bgColor = color;
 
-        public void Print()
-        {
-            Console.ForegroundColor = _fgColor;
-            Console.BackgroundColor = _bgColor;
-            for (int i = 0; i < _height; i++)
-            {
-                for (int j = 0; j < _width; j++)
-                {
-                    Console.Write(_engineTileMap[j, i]);
-                }
-                Console.WriteLine();
-            }
-        }
-
         public void Update()
         {
             Console.Clear();
@@ -121,7 +97,16 @@
             {
                 for (int j = 0; j < _width; j++)
                 {
-                    Console.Write(_engineTileMap[j, i]);
+                    // Debug //
+                    if (i == 0 && j == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(_engineTileMap[j, i]);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        
+                    }
+                    // Debug //
+                    else Console.Write(_engineTileMap[j, i]);
                 }
                 Console.WriteLine();
             }
