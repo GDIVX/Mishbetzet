@@ -129,22 +129,6 @@
         }
 
         /// <summary>
-        /// A meathod the creats an initial tileMap of renders
-        /// </summary>
-        /// <param name="tilemap"></param>
-        
-        //void InitialCreation(Tilemap tilemap)
-        //{
-        //    for (int i = 0; i < tilemap.Height; i++)
-        //    {
-        //        for (int j = 0; j < tilemap.Width; j++)
-        //        {
-        //            _engineTileMap[j, i] = GetTileLook(tilemap.GetTile(j, i));
-        //        }
-        //    }
-        //}
-
-        /// <summary>
         /// A method incharge of getting spcific tile look
         /// </summary>
         /// <param name="tile"></param>
@@ -218,6 +202,10 @@
             }
         }
 
+        /// <summary>
+        /// A meathod the creats an initial tileMap of renders
+        /// </summary>
+        /// <param name="tilemap"></param>
         public void InitialCreation(Tilemap tilemap)
         {
             for (int i = 0; i < tilemap.Height; i++)
