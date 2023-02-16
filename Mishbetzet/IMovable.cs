@@ -13,6 +13,6 @@ namespace Mishbetzet
 
         public abstract void Step(Point direction);
 
-        public abstract void Move();
+        public abstract void Move(Point position);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mishbetzet.Turns;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,30 +12,63 @@ namespace Mishbetzet
     /// </summary>
     public class Core : Engine
     {
-        public Tilemap? Tilemap { get; private set; }
+        static Core _instance;
 
+        /// <summary>
+        /// Singelton for the core engine
+        /// </summary>
+        public static Core Main
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new();
+                }
+
+                return _instance;
+            }
+        }
+        public Tilemap? Tilemap { get; private set; }
+        public TurnManager TurnManager { get; private set; } = new();
         public override bool IsRunning => _isRunning;
 
         public event Action? onEngineStart;
         public event Action? onEngineStop;
 
-        GameRenderer renderer;
+        IRenderer renderer;
         ReadlineCommandHandler commandHandler;
         bool _isRunning = false;
+        private List<Actor> _actorsInPlay = new();
+        private List<GameObject> _gameObjects = new();
 
         public Core()
         {
             Dictionary<string,Command> newDic=new Dictionary<string,Command>();
             newDic.Add("print",new Print());
-            renderer = new();
             commandHandler = new(newDic);
         }
 
-        public void CreateTileMap(int width, int height)
+        #region Factories
+
+        /// <summary>
+        /// Creates a tilemap with the given width and height
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
+            renderer = new ConsoleRenderer(Tilemap);
+            return Tilemap;
         }
 
+        /// <summary>
+        /// Create a tile and add it to <see cref="Tilemap"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="position"></param>
+        /// <exception cref="Exception"></exception>
         public void CreateTile<T>(Point position) where T : Tile
         {
             if (Tilemap == null)
@@ -50,6 +84,56 @@ namespace Mishbetzet
             Tilemap.AddTile(tile);
         }
 
+        public GameObject CreateGameObject<T>(Actor owner, Tile tile) where T : GameObject
+        {
+
+            #region NULL_CHECKS
+            if (owner is null)
+            {
+                throw new ArgumentNullException(nameof(owner));
+            }
+
+            if (tile is null)
+            {
+                throw new ArgumentNullException(nameof(tile));
+            }
+
+            var gameObject = Activator.CreateInstance(typeof(T)) as GameObject;
+
+            if (gameObject == null)
+            {
+                throw new Exception($"Cannot create a game object of type {typeof(T)} ");
+            }
+            #endregion
+
+            gameObject.SetTile(tile);
+            owner.AddGameObject(gameObject);
+
+            return gameObject;
+
+        }
+
+        public Actor CreateActor()
+        {
+            var actor = new Actor();
+            _actorsInPlay.Add(actor);
+            return actor;
+        }
+
+        public Actor? CreateActor<T>() where T : Actor
+        {
+            var actor = Activator.CreateInstance(typeof(T));
+
+            if (actor is Actor act)
+            {
+                _actorsInPlay.Add(act);
+                return act;
+            }
+            return null;
+        }
+        #endregion
+
+
         /// <summary>
         /// Called at the start
         /// </summary>
@@ -59,7 +143,7 @@ namespace Mishbetzet
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Render(Tilemap);
+            renderer.Render();
 
             Update();
         }
@@ -70,7 +154,8 @@ namespace Mishbetzet
         public void Update()
         {
             if (Tilemap == null) return;
-            renderer.Render(Tilemap);
+
+            renderer.Update();
 
             //TODO - create a list of all game objects and call update on them
         }

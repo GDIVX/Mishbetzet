@@ -18,8 +18,8 @@ namespace Mishbetzet
         public int RemainingSteps { get; set; }
 
 
-        public Tile Tile { get => _currentTile; set => _currentTile = value; }
-        public Actor Actor { get => _actor; private set => _actor = value; }
+        public Tile Tile { get => _currentTile; private set => _currentTile = value; }
+        public Actor? Actor { get => _actor; internal set => _actor = value; }
 
 
         public event Action OnStep;
@@ -29,22 +29,61 @@ namespace Mishbetzet
         //meaning he did not land on the tile, just passed over it.
         public event Action<GameObject> OnPassOver;
 
-        internal GameObject(Actor actor, Tile tile)
-        {
-            Actor = actor;
-            Tile = tile;
-            Start();
-        }
-
+        #region Senquancing
+        /// <summary>
+        /// Called every turn
+        /// </summary>
         public virtual void Update()
         {
 
         }
 
+        /// <summary>
+        /// Called when the game object is added to the game
+        /// </summary>
         public virtual void Start() { }
 
-        //does x amount of steps with rules
-        public abstract void Move();
+        #endregion
+
+
+        /// <summary>
+        /// Move the game object to the given position
+        /// </summary>
+        /// <param name="position"></param>
+        public virtual void Move(Point position)
+        {
+            Tilemap? tilemap = Core.Main.Tilemap;
+
+            if (tilemap == null)
+            {
+                throw new NullReferenceException("Trying to move before the tilemap was created");
+            }
+
+            Tile? tile = tilemap[position.X, position.Y];
+
+            if (tile == null) return;
+
+            SetTile(tile);
+        }
+
+        /// <summary>
+        /// Handle setting tiles
+        /// </summary>
+        /// <param name="tile"></param>
+        internal void SetTile(Tile tile)
+        {
+            //Remove old tile if needed
+            if (Tile != null)
+            {
+                Tile.gameObject = null;
+                Actor?.RemoveTile(Tile);
+            }
+
+            //Set new tile
+            Actor?.AddTile(tile);
+            Tile = tile;
+            tile.gameObject = this;
+        }
 
 
         //onstep should contain one tile movement in any direction

@@ -8,8 +8,61 @@ namespace Mishbetzet
 {
     public class Actor
     {
-        List<Tile> tiles;
-        List<GameObject> gameObjects;
+        internal List<Tile> tiles;
+        internal List<GameObject> gameObjects;
 
+        internal Actor()
+        {
+            tiles = new();
+            gameObjects = new();
+        }
+
+        /// <summary>
+        /// Add a tile to the actor
+        /// </summary>
+        /// <param name="tile"></param>
+        public void AddTile(Tile tile)
+        {
+            if (tile is null)
+            {
+                throw new ArgumentNullException(nameof(tile));
+            }
+
+            tile.Actor = this;
+            tiles.Add(tile);
+        }
+
+        /// <summary>
+        /// Remove a tile from the actor
+        /// </summary>
+        /// <param name="tile"></param>
+        public void RemoveTile(Tile tile)
+        {
+            tile.Actor = null;
+            tiles.Remove(tile);
+        }
+
+        /// <summary>
+        /// Add a game object to the actor
+        /// </summary>
+        /// <param name="gameObject"></param>
+        public void AddGameObject(GameObject gameObject)
+        {
+            gameObject.Actor = this;
+            gameObjects.Add(gameObject);
+            AddTile(gameObject.Tile);
+        }
+
+
+        /// <summary>
+        /// Remove a game object from the actor
+        /// </summary>
+        /// <param name="gameObject"></param>
+        public void RemoveGameObject(GameObject gameObject)
+        {
+            gameObject.Actor = null;
+            gameObjects.Remove(gameObject);
+            RemoveTile(gameObject.Tile);
+        }
     }
 }

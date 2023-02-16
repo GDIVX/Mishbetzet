@@ -3,7 +3,7 @@
     public abstract class Tile
     {
         public GameObject gameObject { get; set; }
-        Actor controller;
+        public Actor? Actor { get; set; }
 
         public Point Position { get; set; }
 
@@ -22,7 +22,6 @@
         {
             return $"{Position.X}, {Position.Y}";
         }
-
 
     }
 }

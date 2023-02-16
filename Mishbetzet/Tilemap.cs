@@ -19,10 +19,19 @@ namespace Mishbetzet
             _tiles = new Tile[width, height];
         }
 
+
+        #region Tiles Accessors
         public Tile? this[int x, int y]
         {
             get => GetTile(x, y);
         }
+
+        public Tile? GetTile(Point point)
+        {
+            return this[point.X, point.Y];
+        }
+
+        #endregion
 
         /// <summary>
         /// Return a tile in index x,y
@@ -30,7 +39,7 @@ namespace Mishbetzet
         /// <param name="x">width index</param>
         /// <param name="y">hight index</param>
         /// <returns>A tile in index x,y, or null if index is not valid</returns>
-        Tile? GetTile(int x, int y)
+        public Tile? GetTile(int x, int y)
         {
             if (x < 0 || x >= Width || y < 0 || y >= Height)
                 return null;
@@ -53,56 +62,12 @@ namespace Mishbetzet
 
         public IEnumerator<Tile> GetEnumerator()
         {
-            return SpiralEnumerator();
+            return new ISpiralEnumerator<Tile>(_tiles);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-
-        public IEnumerator<Tile> SpiralEnumerator()
-        {
-            int x = 0;
-            int y = 0;
-            int steps = 1;
-            int loop = Height > Width ? Height : Width;
-
-            for (int l = 0; l < loop; l++)
-            {
-                yield return _tiles[x, y]; //checks initial tile
-                for (int i = 0; i < steps; i++)
-                {
-                    x -= steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-                for (int i = 0; i < steps; i++)
-                {
-                    y -= steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-
-                steps++;
-
-                for (int i = 0; i < steps; i++)
-                {
-                    x += steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-                for (int i = 0; i < steps; i++)
-                {
-                    y += steps;
-                    if (x < 0 || y < 0 || x >= Width || y >= Height)
-                        yield return _tiles[x, y];
-                }
-
-                steps++;
-            }
-        }
-
-
     }
 }
