@@ -19,11 +19,15 @@ namespace Mishbetzet
         public event Action? onEngineStop;
 
         GameRenderer renderer;
+        ReadlineCommandHandler commandHandler;
         bool _isRunning = false;
 
         public Core()
         {
+            Dictionary<string,Command> newDic=new Dictionary<string,Command>();
+            newDic.Add("print",new Print());
             renderer = new();
+            commandHandler = new(newDic);
         }
 
         public void CreateTileMap(int width, int height)
