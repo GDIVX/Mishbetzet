@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal interface IRenderable
+    public interface IRenderable
     {
+        /// <summary>
+        /// The point which this IRenderable is located on the Tilemap
+        /// </summary>
         public Point RednerablePoint { get; }
 
+        /// <summary>
+        /// This method will be incharge of rendering the IRenderable object
+        /// </summary>
         public void RenderObject();
 
     }

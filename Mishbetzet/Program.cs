@@ -12,6 +12,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        int xyossi = 0;
+
         //Sanity check to make sure the engine is working
 
         //Create a tile map
@@ -29,10 +31,10 @@ class Program
         //Create an actor
         var actor = Core.Main.CreateActor<ChessActor>();
 
+
         //Create a game object for each tile
         foreach (var tile in tilemap)
         {
-            Console.WriteLine(tile);
             Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
         }
 
@@ -44,6 +46,11 @@ class Program
 
 public class BaseGameObject : GameObject
 {
+    public override void RenderObject()
+    {
+        Console.Write("O");
+    }
+
     public override void Step(Point direction)
     {
         throw new NotImplementedException();
@@ -59,7 +66,14 @@ public class BaseTile : Tile
     public override void RenderObject()
     {
         Console.Write("[");
-        Console.Write("Debug");
+        if(this.gameObject != null)
+        {
+        this.gameObject.RenderObject();
+        }
+        else
+        {
+        Console.Write(" ");
+        }
         Console.Write("]");
     }
 }

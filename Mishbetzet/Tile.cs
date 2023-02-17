@@ -15,8 +15,6 @@
             Position = position;
         }
 
-
-
         #endregion
 
 
@@ -25,6 +23,9 @@
             return $"{Position.X}, {Position.Y}";
         }
 
+        /// <summary>
+        /// Creates the render loop for the tile, make sure to keep in mind the tile might hold a gameObject
+        /// </summary>
         public abstract void RenderObject();
     }
 }

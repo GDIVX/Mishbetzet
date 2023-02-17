@@ -16,31 +16,6 @@ namespace Mishbetzet
             _renderEngineTileMap = tilemap;
         }
 
-        //public void InitialCreation(Tilemap tilemap)
-        //{
-        //    if (tilemap != null)
-        //    {
-        //        for (int i = 0; i < tilemap.Height; i++)
-        //        {
-        //            for (int j = 0; j < tilemap.Width; j++)
-        //            {
-        //                _renderable = tilemap.GetTile(i, j);
-
-        //                if (_renderable == null)
-        //                {
-        //                    _renderable.RenderObject();
-        //                }
-        //            }
-        //            Console.WriteLine();
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentNullException(nameof(tilemap));
-        //    }
-        //}
-
         public void Render()
         {
             if (_renderEngineTileMap != null)

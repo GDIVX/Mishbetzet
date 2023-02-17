@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    public abstract class GameObject : IMovable, ICloneable
+    public abstract class GameObject : IMovable, ICloneable,IRenderable
     {
         Tile _currentTile;
         Actor _actor;
@@ -21,6 +21,7 @@ namespace Mishbetzet
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
+        public Point RednerablePoint => Tile.Position;
 
         public event Action OnStep;
 
@@ -94,5 +95,7 @@ namespace Mishbetzet
         {
             throw new NotImplementedException();
         }
+
+        public abstract void RenderObject();
     }
 }
