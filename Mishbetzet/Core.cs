@@ -59,7 +59,7 @@ namespace Mishbetzet
         public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
-            renderer = new ConsoleRenderer(Tilemap);
+            renderer = new ConsoleRenderEngine(Tilemap);
             return Tilemap;
         }
 

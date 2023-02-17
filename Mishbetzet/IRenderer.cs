@@ -12,7 +12,7 @@
         /// </summary>
         public void Render();
 
-        void InitialCreation(Tilemap tilemap);
+        //void InitialCreation(Tilemap tilemap);
 
         
 

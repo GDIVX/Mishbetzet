@@ -9,22 +9,51 @@ namespace Mishbetzet
     internal class ConsoleRenderEngine : IRenderer
     {
         Tilemap? _renderEngineTileMap;
-        IRenderable _renderable;
+        IRenderable? _renderable;
 
-        public void InitialCreation(Tilemap tilemap)
+        public ConsoleRenderEngine(Tilemap tilemap)
         {
-            if (tilemap != null)
-            {
-                _renderEngineTileMap = tilemap;
+            _renderEngineTileMap = tilemap;
+        }
 
-                for (int i = 0; i < tilemap.Height; i++)
+        //public void InitialCreation(Tilemap tilemap)
+        //{
+        //    if (tilemap != null)
+        //    {
+        //        for (int i = 0; i < tilemap.Height; i++)
+        //        {
+        //            for (int j = 0; j < tilemap.Width; j++)
+        //            {
+        //                _renderable = tilemap.GetTile(i, j);
+
+        //                if (_renderable == null)
+        //                {
+        //                    _renderable.RenderObject();
+        //                }
+        //            }
+        //            Console.WriteLine();
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentNullException(nameof(tilemap));
+        //    }
+        //}
+
+        public void Render()
+        {
+            if (_renderEngineTileMap != null)
+            {
+                for (int i = 0; i < _renderEngineTileMap.Height; i++)
                 {
-                    for (int j = 0; j < tilemap.Width; j++)
+                    for (int j = 0; j < _renderEngineTileMap.Width; j++)
                     {
-                        if (tilemap.GetTile(i,j)!= null)
+                        _renderable = _renderEngineTileMap.GetTile(i, j);
+
+                        if (_renderable != null)
                         {
-                            _renderable = tilemap.GetTile(i,j);
-                            _renderable.GetLook();
+                            _renderable.RenderObject();
                         }
                     }
                     Console.WriteLine();
@@ -33,13 +62,8 @@ namespace Mishbetzet
             }
             else
             {
-                throw new ArgumentNullException(nameof(tilemap));
+                throw new ArgumentNullException(nameof(_renderEngineTileMap));
             }
-        }
-
-        public void Render()
-        {
-
         }
 
         public void Update()

@@ -17,8 +17,6 @@ class Program
         //Create a tile map
         var tilemap = Core.Main.CreateTileMap(10, 10);
 
-        Core.Main.Run();
-
         //Populate the tile map with tiles
         for (int x = 0; x < 10; x++)
         {
@@ -38,6 +36,8 @@ class Program
             Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
         }
 
+        Core.Main.Run();
+
         Core.Main.TurnManager.StartTurn();
     }
 }
@@ -54,6 +54,13 @@ public class BaseTile : Tile
 {
     public BaseTile(Point position) : base(position)
     {
+    }
+
+    public override void RenderObject()
+    {
+        Console.Write("[");
+        Console.Write("Debug");
+        Console.Write("]");
     }
 }
 

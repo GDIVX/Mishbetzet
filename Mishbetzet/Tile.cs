@@ -25,5 +25,6 @@
             return $"{Position.X}, {Position.Y}";
         }
 
+        public abstract void RenderObject();
     }
 }

@@ -8,8 +8,9 @@ namespace Mishbetzet
 {
     internal interface IRenderable
     {
-        public Point RednerablePoint { get;}
+        public Point RednerablePoint { get; }
 
-        public void GetLook();
+        public void RenderObject();
+
     }
 }
