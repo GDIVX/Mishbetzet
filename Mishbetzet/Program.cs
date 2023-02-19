@@ -12,7 +12,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        int xyossi = 0;
+        int gameObjectX = 0;
 
         //Sanity check to make sure the engine is working
 
@@ -35,11 +35,11 @@ class Program
         //Create a game object for each tile
         foreach (var tile in tilemap)
         {
-            if (xyossi < 8)
+            if (gameObjectX < 11)
             {
                 Console.WriteLine(tile);
                 Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
-                xyossi++;
+                gameObjectX++;
             }
         }
 
