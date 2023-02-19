@@ -15,20 +15,15 @@ class Program
         Actor a1= new Actor();
         Actor a2= new Actor();
         Core.Main.CreateTileMap(10, 10);
-        //Core.Main.Run();
+        Core.Main.Run();
+
         Core.Main.Tilemap.FillMapBasic();
 
-
-        BasicGameObject bgo = new BasicGameObject(a1);
-        //Console.WriteLine(bgo.ToString());
-        //bgo.SetTile(Core.Main.Tilemap[0, 0]);
+        BasicGameObject bgo = new BasicGameObject(a1,2);
 
         Core.Main.Tilemap[0, 0].SetGameObject(bgo);
-        bgo.Move(Point.SouthEast);
+        bgo.Move(new Point(5,5));
 
-        foreach (var t in Core.Main.Tilemap)
-        {
-            Console.WriteLine(t.ToString());
-        }
+        
     }
 }

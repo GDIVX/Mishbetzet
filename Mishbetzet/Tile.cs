@@ -28,6 +28,5 @@
             return $"{Position.X}, {Position.Y}, object: {gameObject}";
         }
 
-
     }
 }
