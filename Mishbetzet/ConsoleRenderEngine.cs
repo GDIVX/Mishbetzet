@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class ConsoleRenderEngine : IRenderer
+    internal class ConsoleRenderEngine : Renderer<string,ConsoleColor>
     {
         Tilemap? _renderEngineTileMap;
 
@@ -20,7 +20,9 @@ namespace Mishbetzet
             Console.Write("[");
             if (tile.gameObject != null)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("O");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
@@ -29,7 +31,7 @@ namespace Mishbetzet
             Console.Write("]");
         }
 
-        public void Render(Tilemap tilemap)
+        public override void Render(Tilemap tilemap)
         {
             if (_renderEngineTileMap != null)
             {
