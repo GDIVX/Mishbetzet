@@ -12,6 +12,8 @@ namespace Mishbetzet
         Tile _currentTile;
         Actor _actor;
 
+        public string Name { get; set; } = "Game Object";
+
         /// <summary>
         /// The distance the game object is allowed to move per turn. 
         /// </summary>
@@ -21,10 +23,19 @@ namespace Mishbetzet
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
-        public GameObject(Actor actor, int movementRange = 0)
+        public GameObject(Actor actor,Tile tile, int movementRange = 10)
         {
             _actor = actor;
+            Tile = tile;
             MovementRange = movementRange;
+            _actor.AddGameObject(this);
+        }
+
+        public GameObject(Actor actor, Tile tile)
+        {
+            _actor = actor;
+            Tile = tile;
+            MovementRange = 10;
             _actor.AddGameObject(this);
         }
 
@@ -197,6 +208,11 @@ namespace Mishbetzet
             }
             OnPassOver?.Invoke(pointToMove);
             return pointToMove;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
