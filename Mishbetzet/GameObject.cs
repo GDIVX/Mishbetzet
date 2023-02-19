@@ -157,14 +157,24 @@ namespace Mishbetzet
             {
                 return false;
             }
-            
-            //check if tile blocks movement
 
-            //check if game object blocks movement
+            GameObject? go = Tile.gameObject;
 
-            //check if game object is ally or enemy
+            //check if tile or game object iblockmovement
+            if(newTile is IBlockMovementMarker || go is IBlockMovementMarker)
+            {
+                return false;
+            }
 
-
+            //check if tile has game object
+            if(go != null)
+            {
+                //check if game object is from the same actor
+                if (go.Actor == this.Actor)
+                {
+                    return false;
+                }
+            }
 
             SetTile(newTile);
 
