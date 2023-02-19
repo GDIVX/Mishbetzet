@@ -10,7 +10,7 @@
         public Point RednerablePoint => Position;
 
         #region constructors
-        public Tile(Point position,char icon)
+        public Tile(Point position)
         {
             Position = position;
         }
