@@ -35,7 +35,7 @@ class Program
         //Create a game object for each tile
         foreach (var tile in tilemap)
         {
-            if (gameObjectX < 11)
+            if (gameObjectX < 28)
             {
                 Console.WriteLine(tile);
                 Core.Main.CreateGameObject<BaseGameObject>(actor, tile);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    internal class ConsoleRenderEngine : Renderer<string,ConsoleColor>
+    internal class ConsoleRenderEngine : IRenderer
     {
         Tilemap? _renderEngineTileMap;
 
@@ -31,7 +32,7 @@ namespace Mishbetzet
             Console.Write("]");
         }
 
-        public override void Render(Tilemap tilemap)
+        public void Render(Tilemap tilemap)
         {
             if (_renderEngineTileMap != null)
             {
@@ -52,6 +53,8 @@ namespace Mishbetzet
             {
                 throw new ArgumentNullException(nameof(_renderEngineTileMap));
             }
+        
         }
+
     }
 }

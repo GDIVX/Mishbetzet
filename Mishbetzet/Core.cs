@@ -139,7 +139,6 @@ namespace Mishbetzet
         /// </summary>
         public override void Run()
         {
-
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;

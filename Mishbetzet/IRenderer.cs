@@ -1,19 +1,17 @@
-﻿namespace Mishbetzet
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mishbetzet
 {
-    internal abstract class Renderer<T,T1>
+    internal interface IRenderer
     {
 
         public abstract void Render(Tilemap tilemap);
 
-        public void ChangeTileLook(T pieceLook, Tile tile, T1 newColor)
-        {
-            
-        }
-
-        public void ChangeGameObjectLook(T pieceLook, GameObject gameObject, T1 newColor)
-        {
-
-        }
 
     }
 }
