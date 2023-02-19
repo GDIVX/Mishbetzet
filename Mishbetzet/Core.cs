@@ -143,9 +143,8 @@ namespace Mishbetzet
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Render();
-
             Update();
+
         }
 
         /// <summary>
@@ -155,7 +154,7 @@ namespace Mishbetzet
         {
             if (Tilemap == null) return;
 
-            renderer.Update();
+            renderer.Render(Tilemap);
 
             //TODO - create a list of all game objects and call update on them
         }

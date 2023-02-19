@@ -17,7 +17,7 @@
     /// <summary>
     /// Renders the game.
     /// </summary>
-    internal class ConsoleRenderer : IRenderer 
+    internal class ConsoleRenderer 
     {
         /// <summary>
         /// Tile map the render engine creates to facilitate any possable changes

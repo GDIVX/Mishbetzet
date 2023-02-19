@@ -9,14 +9,27 @@ namespace Mishbetzet
     internal class ConsoleRenderEngine : IRenderer
     {
         Tilemap? _renderEngineTileMap;
-        IRenderable? _renderable;
 
         public ConsoleRenderEngine(Tilemap tilemap)
         {
             _renderEngineTileMap = tilemap;
         }
 
-        public void Render()
+        void RenderTile(Tile tile)
+        {
+            Console.Write("[");
+            if (tile.gameObject != null)
+            {
+                Console.Write("O");
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+            Console.Write("]");
+        }
+
+        public void Render(Tilemap tilemap)
         {
             if (_renderEngineTileMap != null)
             {
@@ -24,11 +37,9 @@ namespace Mishbetzet
                 {
                     for (int j = 0; j < _renderEngineTileMap.Width; j++)
                     {
-                        _renderable = _renderEngineTileMap.GetTile(i, j);
-
-                        if (_renderable != null)
+                        if (_renderEngineTileMap.GetTile(i, j) != null)
                         {
-                            _renderable.RenderObject();
+                            RenderTile(_renderEngineTileMap.GetTile(i, j));
                         }
                     }
                     Console.WriteLine();
@@ -39,11 +50,6 @@ namespace Mishbetzet
             {
                 throw new ArgumentNullException(nameof(_renderEngineTileMap));
             }
-        }
-
-        public void Update()
-        {
-
         }
     }
 }

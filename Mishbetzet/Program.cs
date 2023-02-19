@@ -35,7 +35,12 @@ class Program
         //Create a game object for each tile
         foreach (var tile in tilemap)
         {
-            Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
+            if (xyossi < 8)
+            {
+                Console.WriteLine(tile);
+                Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
+                xyossi++;
+            }
         }
 
         Core.Main.Run();
@@ -46,10 +51,6 @@ class Program
 
 public class BaseGameObject : GameObject
 {
-    public override void RenderObject()
-    {
-        Console.Write("O");
-    }
 
     public override void Step(Point direction)
     {
@@ -61,20 +62,6 @@ public class BaseTile : Tile
 {
     public BaseTile(Point position) : base(position)
     {
-    }
-
-    public override void RenderObject()
-    {
-        Console.Write("[");
-        if(this.gameObject != null)
-        {
-        this.gameObject.RenderObject();
-        }
-        else
-        {
-        Console.Write(" ");
-        }
-        Console.Write("]");
     }
 }
 
