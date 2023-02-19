@@ -53,7 +53,7 @@ namespace Mishbetzet
         /// <param name="x">width index</param>
         /// <param name="y">hight index</param>
         /// <returns>A tile in index x,y, or null if index is not valid</returns>
-        Tile? GetTile(int x, int y)
+        public Tile? GetTile(int x, int y)
         {
             if (x < 0 || x >= Width || y < 0 || y >= Height)
                 return null;
