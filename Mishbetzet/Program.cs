@@ -49,11 +49,9 @@ class Program
 public class BaseGameObject : GameObject, IMovable
 {
     public BaseGameObject(Actor actor, Tile tile) : base(actor, tile)
-
-    public override void Step(Point direction)
     {
-    }
 
+    }
     public BaseGameObject(Actor actor,Tile tile, int movementRange = 10) : base(actor, tile, movementRange)
     {
     }
