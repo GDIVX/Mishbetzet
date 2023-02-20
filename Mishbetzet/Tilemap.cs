@@ -20,6 +20,20 @@ namespace Mishbetzet
         }
 
 
+        /// <summary>
+        /// Fill tilemap with empty BasicTiles
+        /// </summary>
+        public void FillMapBasic()
+        {
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    AddTile(new BasicTile(new Point(j, i)));
+                }
+            }
+        }
+
         #region Tiles Accessors
         public Tile? this[int x, int y]
         {

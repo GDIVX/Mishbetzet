@@ -98,7 +98,7 @@ namespace Mishbetzet
                 throw new ArgumentNullException(nameof(tile));
             }
 
-            var gameObject = Activator.CreateInstance(typeof(T)) as GameObject;
+            var gameObject = Activator.CreateInstance(typeof(T), owner, tile) as GameObject;
 
             if (gameObject == null)
             {

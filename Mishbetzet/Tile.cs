@@ -22,9 +22,16 @@ namespace Mishbetzet
 
         #endregion
 
+        public void SetGameObject(GameObject newGameObject)
+        {
+            this.gameObject = newGameObject;
+            newGameObject.SetTile(this);
+        }
+
+
         public override string ToString()
         {
-            return $"{Position.X}, {Position.Y}";
+            return $"{Position.X}, {Position.Y}, object: {gameObject}";
         }
 
         public void GetLook()

@@ -35,12 +35,9 @@ class Program
         //Create a game object for each tile
         foreach (var tile in tilemap)
         {
-            if (gameObjectX < 28)
-            {
-                Console.WriteLine(tile);
-                Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
-                gameObjectX++;
-            }
+            BaseGameObject bgo = (BaseGameObject)Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
+            Console.WriteLine(tile);
+
         }
 
         Core.Main.Run();
@@ -49,13 +46,18 @@ class Program
     }
 }
 
-public class BaseGameObject : GameObject
+public class BaseGameObject : GameObject, IMovable
 {
+    public BaseGameObject(Actor actor, Tile tile) : base(actor, tile)
 
     public override void Step(Point direction)
     {
-        throw new NotImplementedException();
     }
+
+    public BaseGameObject(Actor actor,Tile tile, int movementRange = 10) : base(actor, tile, movementRange)
+    {
+    }
+
 }
 
 public class BaseTile : Tile
