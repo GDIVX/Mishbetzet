@@ -23,6 +23,9 @@ namespace Mishbetzet
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
+        public Point RednerablePoint => Tile.Position;
+        public event Action OnStep;
+        
         public GameObject(Actor actor,Tile tile, int movementRange = 10)
         {
             _actor = actor;
@@ -40,7 +43,7 @@ namespace Mishbetzet
         }
 
 
-        public event Action OnStep;
+
 
 
         //should be called if a game object steps on a tile without finishing his move function,
