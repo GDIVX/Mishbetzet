@@ -59,7 +59,7 @@ namespace Mishbetzet
         public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
-            renderer = new ConsoleRenderer(Tilemap);
+            renderer = new ConsoleRenderEngine(Tilemap);
             return Tilemap;
         }
 
@@ -139,13 +139,11 @@ namespace Mishbetzet
         /// </summary>
         public override void Run()
         {
-
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Render();
-
             Update();
+
         }
 
         /// <summary>
@@ -155,7 +153,7 @@ namespace Mishbetzet
         {
             if (Tilemap == null) return;
 
-            renderer.Update();
+            renderer.Render(Tilemap);
 
             //TODO - create a list of all game objects and call update on them
         }
