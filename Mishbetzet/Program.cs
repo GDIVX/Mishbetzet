@@ -30,12 +30,6 @@ class Program
         //Create an actor
         var actor = Core.Main.CreateActor<ChessActor>();
 
-        //Create a game object for each tile
-        foreach (var tile in tilemap)
-        {
-            Console.WriteLine(tile);
-            Core.Main.CreateGameObject<BaseGameObject>(actor, tile);
-        }
 
         Core.Main.TurnManager.StartTurn();
     }
