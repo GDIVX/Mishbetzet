@@ -25,5 +25,9 @@
             return $"{Position.X}, {Position.Y}";
         }
 
+        public void GetLook()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
