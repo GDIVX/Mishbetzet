@@ -36,12 +36,18 @@ namespace Mishbetzet
         public event Action? onEngineStart;
         public event Action? onEngineStop;
 
+        IRenderer renderer;
+        ReadlineCommandHandler commandHandler;
+        bool _isRunning = false;
         private List<Actor> _actorsInPlay = new();
         private List<GameObject> _gameObjects = new();
 
-        IRenderer renderer;
-        bool _isRunning = false;
-
+        public Core()
+        {
+            Dictionary<string,Command> newDic=new Dictionary<string,Command>();
+            newDic.Add("print",new Print());
+            commandHandler = new(newDic);
+        }
 
         #region Factories
 
@@ -53,7 +59,7 @@ namespace Mishbetzet
         public Tilemap CreateTileMap(int width, int height)
         {
             Tilemap = new(width, height);
-            renderer = new ConsoleRenderer(Tilemap);
+            renderer = new ConsoleRenderEngine(Tilemap);
             return Tilemap;
         }
 
@@ -133,13 +139,11 @@ namespace Mishbetzet
         /// </summary>
         public override void Run()
         {
-
             onEngineStart?.Invoke();
 
             if (Tilemap == null) return;
-            renderer.Render();
-
             Update();
+
         }
 
         /// <summary>
@@ -149,7 +153,7 @@ namespace Mishbetzet
         {
             if (Tilemap == null) return;
 
-            renderer.Update();
+            renderer.Render(Tilemap);
 
             //TODO - create a list of all game objects and call update on them
         }

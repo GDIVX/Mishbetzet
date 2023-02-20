@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,22 +10,39 @@ namespace Mishbetzet
     internal class ConsoleRenderEngine : IRenderer
     {
         Tilemap? _renderEngineTileMap;
-        IRenderable _renderable;
 
-        public void InitialCreation(Tilemap tilemap)
+        public ConsoleRenderEngine(Tilemap tilemap)
         {
-            if (tilemap != null)
-            {
-                _renderEngineTileMap = tilemap;
+            _renderEngineTileMap = tilemap;
+        }
 
-                for (int i = 0; i < tilemap.Height; i++)
+        void RenderTile(Tile tile)
+        {
+            Console.Write("[");
+            if (tile.gameObject != null)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("O");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+            Console.Write("]");
+        }
+
+        public void Render(Tilemap tilemap)
+        {
+            if (_renderEngineTileMap != null)
+            {
+                for (int i = 0; i < _renderEngineTileMap.Height; i++)
                 {
-                    for (int j = 0; j < tilemap.Width; j++)
+                    for (int j = 0; j < _renderEngineTileMap.Width; j++)
                     {
-                        if (tilemap.GetTile(i,j)!= null)
+                        if (_renderEngineTileMap.GetTile(i, j) != null)
                         {
-                            _renderable = tilemap.GetTile(i,j);
-                            _renderable.GetLook();
+                            RenderTile(_renderEngineTileMap.GetTile(i, j));
                         }
                     }
                     Console.WriteLine();
@@ -33,18 +51,10 @@ namespace Mishbetzet
             }
             else
             {
-                throw new ArgumentNullException(nameof(tilemap));
+                throw new ArgumentNullException(nameof(_renderEngineTileMap));
             }
+        
         }
 
-        public void Render()
-        {
-
-        }
-
-        public void Update()
-        {
-
-        }
     }
 }

@@ -21,6 +21,7 @@ namespace Mishbetzet
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
+        public Point RednerablePoint => Tile.Position;
 
         public event Action OnStep;
 
