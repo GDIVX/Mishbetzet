@@ -1,0 +1,195 @@
+\doxysection{Mishbetzet.\+Game\+Object Class Reference}
+\label{class_mishbetzet_1_1_game_object}\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+Inheritance diagram for Mishbetzet.\+Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mishbetzet_1_1_game_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Game\+Object} (\textbf{ Actor} actor, \textbf{ Tile} tile, int movement\+Range=10)
+\item 
+\textbf{ Game\+Object} (\textbf{ Actor} actor, \textbf{ Tile} tile)
+\item 
+virtual void \textbf{ Update} ()
+\begin{DoxyCompactList}\small\item\em Called every turn \end{DoxyCompactList}\item 
+virtual void \textbf{ Start} ()
+\begin{DoxyCompactList}\small\item\em Called when the game object is added to the game \end{DoxyCompactList}\item 
+virtual void \textbf{ Move} (\textbf{ Point} position)
+\begin{DoxyCompactList}\small\item\em Move the game object to the given position \end{DoxyCompactList}\item 
+void \textbf{ Print\+Pos} ()
+\item 
+virtual bool \textbf{ Try\+Step} (\textbf{ Point} direction)
+\begin{DoxyCompactList}\small\item\em Tries to step in a direction \end{DoxyCompactList}\item 
+override string \textbf{ To\+String} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \textbf{ Name} = \char`\"{}Game Object\char`\"{}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+int \textbf{ Movement\+Range}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em The distance the game object is allowed to move per turn. \end{DoxyCompactList}\item 
+int \textbf{ Remaining\+Steps}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Tile} \textbf{ Tile}\hspace{0.3cm}{\ttfamily  [get]}
+\item 
+\textbf{ Actor}? \textbf{ Actor}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Point} \textbf{ Rednerable\+Point}\hspace{0.3cm}{\ttfamily  [get]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action \textbf{ On\+Step}
+\item 
+Action$<$ \textbf{ Point} $>$ \textbf{ On\+Pass\+Over}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_mishbetzet_1_1_game_object_abd5f00ba12ddbfb271a362f3ebe497f3}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{GameObject()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mishbetzet.\+Game\+Object.\+Game\+Object (\begin{DoxyParamCaption}\item[{\textbf{ Actor}}]{actor,  }\item[{\textbf{ Tile}}]{tile,  }\item[{int}]{movement\+Range = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a2f208d298c51f0c519f7ecba625590d5}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{GameObject()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mishbetzet.\+Game\+Object.\+Game\+Object (\begin{DoxyParamCaption}\item[{\textbf{ Actor}}]{actor,  }\item[{\textbf{ Tile}}]{tile }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_mishbetzet_1_1_game_object_a8ebeb55606061f88a5999f75965b2612}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Move@{Move}}
+\index{Move@{Move}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Move()}
+{\footnotesize\ttfamily virtual void Mishbetzet.\+Game\+Object.\+Move (\begin{DoxyParamCaption}\item[{\textbf{ Point}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Move the game object to the given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_mishbetzet_1_1_game_object_a53c2b1831774dab2c0de56d83ef22ae9}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!PrintPos@{PrintPos}}
+\index{PrintPos@{PrintPos}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{PrintPos()}
+{\footnotesize\ttfamily void Mishbetzet.\+Game\+Object.\+Print\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_ad9af6018225adcb4e0fcba24816c30c1}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Start@{Start}}
+\index{Start@{Start}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Start()}
+{\footnotesize\ttfamily virtual void Mishbetzet.\+Game\+Object.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called when the game object is added to the game 
+
+\mbox{\label{class_mishbetzet_1_1_game_object_af200e9dd99798cd8c79b9ad0efe58b94}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!ToString@{ToString}}
+\index{ToString@{ToString}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{ToString()}
+{\footnotesize\ttfamily override string Mishbetzet.\+Game\+Object.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a7b6c3a8f0765354f432f4885441ab256}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!TryStep@{TryStep}}
+\index{TryStep@{TryStep}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{TryStep()}
+{\footnotesize\ttfamily virtual bool Mishbetzet.\+Game\+Object.\+Try\+Step (\begin{DoxyParamCaption}\item[{\textbf{ Point}}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Tries to step in a direction 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{class_mishbetzet_1_1_game_object_a4a615fddddf804cb5b9ebdeacae063c2}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Update@{Update}}
+\index{Update@{Update}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Update()}
+{\footnotesize\ttfamily virtual void Mishbetzet.\+Game\+Object.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called every turn 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_mishbetzet_1_1_game_object_aaa34161582c81c173982233847f32054}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Actor@{Actor}}
+\index{Actor@{Actor}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Actor}
+{\footnotesize\ttfamily \textbf{ Actor}? Mishbetzet.\+Game\+Object.\+Actor\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a41ea6981be32918f9c9892e17c9cc956}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!MovementRange@{MovementRange}}
+\index{MovementRange@{MovementRange}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{MovementRange}
+{\footnotesize\ttfamily int Mishbetzet.\+Game\+Object.\+Movement\+Range\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The distance the game object is allowed to move per turn. 
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a092571a9334914179d54471ae35e7153}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Name@{Name}}
+\index{Name@{Name}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Name}
+{\footnotesize\ttfamily string Mishbetzet.\+Game\+Object.\+Name = \char`\"{}Game Object\char`\"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a7fea15b8d10530fb4599c3f25356b90d}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!RednerablePoint@{RednerablePoint}}
+\index{RednerablePoint@{RednerablePoint}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{RednerablePoint}
+{\footnotesize\ttfamily \textbf{ Point} Mishbetzet.\+Game\+Object.\+Rednerable\+Point\hspace{0.3cm}{\ttfamily [get]}}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a8221dc7e0a0144a56aac1e60ff877518}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!RemainingSteps@{RemainingSteps}}
+\index{RemainingSteps@{RemainingSteps}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{RemainingSteps}
+{\footnotesize\ttfamily int Mishbetzet.\+Game\+Object.\+Remaining\+Steps\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a5f2a481c7f68dde11fcb5ccc9ceb15dd}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!Tile@{Tile}}
+\index{Tile@{Tile}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{Tile}
+{\footnotesize\ttfamily \textbf{ Tile} Mishbetzet.\+Game\+Object.\+Tile\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\label{class_mishbetzet_1_1_game_object_add5cdf78b3c9a1865cbc22b9d196ca2e}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!OnPassOver@{OnPassOver}}
+\index{OnPassOver@{OnPassOver}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{OnPassOver}
+{\footnotesize\ttfamily Action$<$\textbf{ Point}$>$ Mishbetzet.\+Game\+Object.\+On\+Pass\+Over}
+
+\mbox{\label{class_mishbetzet_1_1_game_object_a6fd645707d7373dc9896412cf699abfc}} 
+\index{Mishbetzet.GameObject@{Mishbetzet.GameObject}!OnStep@{OnStep}}
+\index{OnStep@{OnStep}!Mishbetzet.GameObject@{Mishbetzet.GameObject}}
+\doxysubsubsection{OnStep}
+{\footnotesize\ttfamily Action Mishbetzet.\+Game\+Object.\+On\+Step}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alkin/\+Tiltan/\+Programming/\+Year2\+Semester1/\+Mishbetzet/\+Mishbetzet/\textbf{ Game\+Object.\+cs}\end{DoxyCompactItemize}
