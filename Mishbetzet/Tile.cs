@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Mishbetzet
 {
     /// <summary>
-    /// Tile class
+    /// Holds the data and logic for tile
     /// </summary>
     public abstract class Tile
     {

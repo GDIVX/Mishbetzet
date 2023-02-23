@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Mishbetzet.Turns
 {
     /// <summary>
-    /// Keep track on turns
+    /// An interface that keeps track on acotr turns
     /// </summary>
     public interface ITurnTracker
     {

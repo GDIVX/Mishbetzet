@@ -4,6 +4,7 @@
     {
         public abstract void Execute(params string[] values);
     }
+    
     public class Print : Command
     {
         public override void Execute(params string[] values)

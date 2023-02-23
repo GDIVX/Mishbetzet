@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
+    /// <summary>
+    /// Represents the actor/side in a board game
+    /// </summary>
     public class Actor
     {
         internal List<Tile> tiles;

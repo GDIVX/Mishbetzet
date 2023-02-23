@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
+    /// <summary>
+    /// Holds the data and logic for tile objects
+    /// </summary>
     public abstract class TileObject : IMovable, ICloneable
     {
         Tile _currentTile;

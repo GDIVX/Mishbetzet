@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Mishbetzet
 {
     /// <summary>
-    /// implement this to tiles and game objects that block the movement of other game objects
+    /// Implement this to tiles and game objects that block the movement of other game objects
     /// </summary>
     internal interface IBlockMovementMarker
     {

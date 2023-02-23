@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Mishbetzet
 {
     /// <summary>
-    /// The core interface for the engine
+    /// Core engine implementation
     /// </summary>
     public class Core : Engine
     {
