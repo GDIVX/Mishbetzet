@@ -46,7 +46,7 @@ class Program
     }
 }
 
-public class BaseGameObject : GameObject, IMovable
+public class BaseGameObject : TileObject, IMovable
 {
     public BaseGameObject(Actor actor, Tile tile) : base(actor, tile)
     {

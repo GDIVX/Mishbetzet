@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
-    public abstract class GameObject : IMovable, ICloneable
+    public abstract class TileObject : IMovable, ICloneable
     {
         Tile _currentTile;
         Actor _actor;
 
-        public string Name { get; set; } = "Game Object";
+        public string Name { get; set; } = "Tile Object";
 
         /// <summary>
         /// The distance the game object is allowed to move per turn. 
@@ -26,7 +26,7 @@ namespace Mishbetzet
         public Point RednerablePoint => Tile.Position;
         public event Action OnStep;
         
-        public GameObject(Actor actor,Tile tile, int movementRange = 10)
+        public TileObject(Actor actor,Tile tile, int movementRange = 10)
         {
             _actor = actor;
             Tile = tile;
@@ -34,7 +34,7 @@ namespace Mishbetzet
             _actor.AddGameObject(this);
         }
 
-        public GameObject(Actor actor, Tile tile)
+        public TileObject(Actor actor, Tile tile)
         {
             _actor = actor;
             Tile = tile;
@@ -161,7 +161,7 @@ namespace Mishbetzet
                 return false;
             }
 
-            GameObject? go = Tile.gameObject;
+            TileObject? go = Tile.gameObject;
 
             //check if tile or game object iblockmovement
             if(newTile is IBlockMovementMarker || go is IBlockMovementMarker)
