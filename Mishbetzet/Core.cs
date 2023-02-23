@@ -14,6 +14,8 @@ namespace Mishbetzet
     {
         static Core _instance;
 
+        public event Action OnTilemapUpdated;
+
         /// <summary>
         /// Singelton for the core engine
         /// </summary>
@@ -37,16 +39,14 @@ namespace Mishbetzet
         public event Action? onEngineStop;
 
         IRenderer renderer;
-        ReadlineCommandHandler commandHandler;
         bool _isRunning = false;
         private List<Actor> _actorsInPlay = new();
         private List<TileObject> _gameObjects = new();
 
         public Core()
         {
-            Dictionary<string,Command> newDic=new Dictionary<string,Command>();
-            newDic.Add("print",new Print());
-            commandHandler = new(newDic);
+            Dictionary<string, Command> newDic = new Dictionary<string, Command>();
+            newDic.Add("print", new Print());
         }
 
         #region Factories
@@ -69,19 +69,24 @@ namespace Mishbetzet
         /// <typeparam name="T"></typeparam>
         /// <param name="position"></param>
         /// <exception cref="Exception"></exception>
-        public void CreateTile<T>(Point position) where T : Tile
+        public Tile CreateTile<T>(Point position) where T : Tile
         {
             if (Tilemap == null)
             {
                 throw new Exception("Tilemap is not initialized");
             }
 
-            var tile = Activator.CreateInstance(typeof(T), position) as Tile;
+            string name = typeof(T).Name;
+            var tile = Activator.CreateInstance(typeof(T), position, name) as Tile;
             if (tile == null)
             {
                 throw new Exception($"Tile creation failed for type {typeof(T)}");
             }
             Tilemap.AddTile(tile);
+
+            OnTilemapUpdated?.Invoke();
+
+            return tile;
         }
 
         public TileObject CreateGameObject<T>(Actor owner, Tile tile) where T : TileObject
@@ -98,7 +103,7 @@ namespace Mishbetzet
                 throw new ArgumentNullException(nameof(tile));
             }
 
-            var gameObject = Activator.CreateInstance(typeof(T), owner, tile) as TileObject;
+            var gameObject = Activator.CreateInstance(typeof(T)) as TileObject;
 
             if (gameObject == null)
             {
@@ -106,8 +111,12 @@ namespace Mishbetzet
             }
             #endregion
 
+            gameObject.Name = typeof(T).Name;
             gameObject.SetTile(tile);
             owner.AddGameObject(gameObject);
+
+            OnTilemapUpdated?.Invoke();
+
 
             return gameObject;
 
@@ -155,7 +164,6 @@ namespace Mishbetzet
 
             renderer.Render(Tilemap);
 
-            //TODO - create a list of all game objects and call update on them
         }
 
         public override void Stop()
