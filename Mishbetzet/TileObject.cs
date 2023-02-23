@@ -11,39 +11,22 @@ namespace Mishbetzet
     {
         Tile _currentTile;
         Actor _actor;
-
-        public string Name { get; set; } = "Tile Object";
-
+        string _name;
         /// <summary>
         /// The distance the game object is allowed to move per turn. 
         /// </summary>
         public int MovementRange { get; set; }
-        public int RemainingSteps { get; set; }
+        public int RemainingSteps { get; set; } = 10;
+
 
         public Tile Tile { get => _currentTile; private set => _currentTile = value; }
         public Actor? Actor { get => _actor; internal set => _actor = value; }
 
         public Point RednerablePoint => Tile.Position;
-        public event Action OnStep;
-        
-        public TileObject(Actor actor,Tile tile, int movementRange = 10)
-        {
-            _actor = actor;
-            Tile = tile;
-            MovementRange = movementRange;
-            _actor.AddGameObject(this);
-        }
 
-        public TileObject(Actor actor, Tile tile)
-        {
-            _actor = actor;
-            Tile = tile;
-            MovementRange = 10;
-            _actor.AddGameObject(this);
-        }
+        public string Name { get => _name; set => _name = value; }
 
-
-
+        public event Action OnMove;
 
 
         //should be called if a game object steps on a tile without finishing his move function,
@@ -82,14 +65,10 @@ namespace Mishbetzet
 
             Tile? tile = tilemap[position.X, position.Y];
 
-            if (tile == null)
-            {
-                return;
-            }
-
-            //check if tile or gameObject on the tile that you want to move to blocks movement
+            if (tile == null) return;
 
             int remainingSteps = RemainingSteps;
+            Point previousPos = Tile.Position;
 
             while (TryStep(position))
             {
@@ -100,6 +79,12 @@ namespace Mishbetzet
 
                 }
             }
+
+            if (!Tile.Position.Equals(previousPos))
+            {
+                OnMove?.Invoke();
+            }
+
         }
 
         /// <summary>
@@ -111,72 +96,49 @@ namespace Mishbetzet
             //Remove old tile if needed
             if (Tile != null)
             {
-                Tile.gameObject = null;
+                Tile.tileObject = null;
                 Actor?.RemoveTile(Tile);
             }
 
             //Set new tile
             Actor?.AddTile(tile);
             Tile = tile;
-            tile.gameObject = this;
+            tile.tileObject = this;
         }
 
-
-        //onstep should contain one tile movement in any direction
-        //based on the move logic for each game object. for example moves in stepdirection North (N) so y--
-        //public abstract void Step(Point direction);
-
-        object ICloneable.Clone()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrintPos()
-        {
-            Console.WriteLine(Tile.Position);
-        }
 
         /// <summary>
-        /// Tries to step in a direction
+        /// Tries to take one step in a direction
         /// </summary>
-        /// <param name="direction"></param>
+        /// <param name="position"></param>
         /// <returns></returns>
-        public virtual bool TryStep(Point direction)
+        public virtual bool TryStep(Point position)
         {
             Point currentPoint = Tile.Position;
             Point pos = new Point();
-            pos = Tile.Position - direction;
+            pos = Tile.Position - position;
 
-            currentPoint = Step(currentPoint, pos);
+            Point newPoint = Step(currentPoint, pos);
 
-            if (currentPoint.Equals(Tile.Position))
+            //is new point the same as current point
+            if (newPoint.Equals(Tile.Position))
             {
                 return false;
             }
 
-            Tile? newTile = Core.Main.Tilemap[currentPoint.X, currentPoint.Y];
+            Tile? newTile = Core.Main.Tilemap[newPoint.X, newPoint.Y];
 
-            if(newTile == null)
+            if (newTile == null)
             {
                 return false;
             }
 
-            TileObject? go = Tile.gameObject;
+            TileObject? go = Core.Main.Tilemap.GetTile(newPoint).tileObject;
 
             //check if tile or game object iblockmovement
-            if(newTile is IBlockMovementMarker || go is IBlockMovementMarker)
+            if (newTile is IBlockMovementMarker || go is IBlockMovementMarker)
             {
                 return false;
-            }
-
-            //check if tile has game object
-            if(go != null)
-            {
-                //check if game object is from the same actor
-                if (go.Actor == this.Actor)
-                {
-                    return false;
-                }
             }
 
             SetTile(newTile);
@@ -223,9 +185,9 @@ namespace Mishbetzet
             return pointToMove;
         }
 
-        public override string ToString()
+        public object Clone()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
     }
 }

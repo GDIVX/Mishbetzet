@@ -26,7 +26,7 @@ namespace Mishbetzet
             this.map = map;
             
             //size of tilemap
-            width = map.GetLength(0); 
+            width = map.GetLength(0);
             height = map.GetLength(1);
             
             //start at center-ish of map

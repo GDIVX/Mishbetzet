@@ -17,7 +17,7 @@ namespace Mishbetzet
             int steps = 0;
             while (TryStep(position))
             {
-                if(steps < 20)
+                if (steps < 20)
                 {
                     steps++;
                 }
