@@ -8,8 +8,11 @@ namespace Mishbetzet
 {
     public class BasicTile : Tile
     {
-        public BasicTile(Point position) : base(position)
+        public BasicTile(Point position, string name) : base(position, name)
         {
+
         }
+
+        public override string Name => "Base";
     }
 }

@@ -49,7 +49,7 @@ namespace Mishbetzet
 
         public void RenderTileObject(int x, int y, Tilemap tilemap)
         {
-            if (tilemap.GetTile(x,y).gameObject != null)
+            if (tilemap.GetTile(x,y).tileObject != null)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("O");

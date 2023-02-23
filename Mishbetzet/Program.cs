@@ -48,21 +48,17 @@ class Program
 
 public class BaseGameObject : TileObject, IMovable
 {
-    public BaseGameObject(Actor actor, Tile tile) : base(actor, tile)
-    {
-
-    }
-    public BaseGameObject(Actor actor,Tile tile, int movementRange = 10) : base(actor, tile, movementRange)
-    {
-    }
 
 }
 
 public class BaseTile : Tile
 {
-    public BaseTile(Point position) : base(position)
+    public BaseTile(Point position, string name) : base(position, name)
     {
+
     }
+
+    public override string Name => "Base";
 }
 
 public class ChessActor : TurnTrackedActor
