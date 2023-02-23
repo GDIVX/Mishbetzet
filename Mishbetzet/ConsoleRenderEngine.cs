@@ -16,22 +16,6 @@ namespace Mishbetzet
             _renderEngineTileMap = tilemap;
         }
 
-        void RenderTile(Tile tile)
-        {
-            Console.Write("[");
-            if (tile.gameObject != null)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("O");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            else
-            {
-                Console.Write(" ");
-            }
-            Console.Write("]");
-        }
-
         public void Render(Tilemap tilemap)
         {
             if (_renderEngineTileMap != null)
@@ -42,7 +26,7 @@ namespace Mishbetzet
                     {
                         if (_renderEngineTileMap.GetTile(i, j) != null)
                         {
-                            RenderTile(_renderEngineTileMap.GetTile(i, j));
+                            RenderTile(i,j,tilemap);
                         }
                     }
                     Console.WriteLine();
@@ -56,5 +40,25 @@ namespace Mishbetzet
         
         }
 
+        public void RenderTile(int x, int y, Tilemap tilemap)
+        {
+            Console.Write("[");
+            RenderTileObject(x,y,tilemap);
+            Console.Write("]");
+        }
+
+        public void RenderTileObject(int x, int y, Tilemap tilemap)
+        {
+            if (tilemap.GetTile(x,y).gameObject != null)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("O");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+        }
     }
 }

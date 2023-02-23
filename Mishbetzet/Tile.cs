@@ -34,9 +34,5 @@ namespace Mishbetzet
             return $"{Position.X}, {Position.Y}, object: {gameObject}";
         }
 
-        public void GetLook()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
