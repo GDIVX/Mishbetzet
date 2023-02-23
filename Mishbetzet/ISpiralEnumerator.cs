@@ -21,6 +21,10 @@ namespace Mishbetzet
         int height;
         T[,] map;
 
+        /// <summary>
+        /// Enum that expands the search in a spiral fashion
+        /// </summary>
+        /// <param name="map"></param>
         public ISpiralEnumerator(T[,] map)
         {
             this.map = map;
@@ -40,6 +44,10 @@ namespace Mishbetzet
 
         public T Current => map[x, y];
 
+        /// <summary>
+        /// Moves next based on the current direction
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             //depending on direction, add or subtract to x or y

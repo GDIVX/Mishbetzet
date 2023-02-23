@@ -31,6 +31,7 @@ namespace Mishbetzet
                 return _instance;
             }
         }
+
         public Tilemap? Tilemap { get; private set; }
         public TurnManager TurnManager { get; private set; } = new();
         public override bool IsRunning => _isRunning;
@@ -89,6 +90,15 @@ namespace Mishbetzet
             return tile;
         }
 
+        /// <summary>
+        /// Create a tile and add it to <see cref="Tile"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="owner">The owner of tileObject</param>
+        /// <param name="tile">The tileObject's tile</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="Exception"></exception>
         public TileObject CreateGameObject<T>(Actor owner, Tile tile) where T : TileObject
         {
 
@@ -122,6 +132,10 @@ namespace Mishbetzet
 
         }
 
+        /// <summary>
+        /// Creates a new actor
+        /// </summary>
+        /// <returns></returns>
         public Actor CreateActor()
         {
             var actor = new Actor();
@@ -129,6 +143,11 @@ namespace Mishbetzet
             return actor;
         }
 
+        /// <summary>
+        /// Creates a new actor based on a defulat class
+        /// </summary>
+        /// <typeparam name="T">Actor defualt class</typeparam>
+        /// <returns></returns>
         public Actor? CreateActor<T>() where T : Actor
         {
             var actor = Activator.CreateInstance(typeof(T));
@@ -166,6 +185,9 @@ namespace Mishbetzet
 
         }
 
+        /// <summary>
+        /// Stops the engine from running
+        /// </summary>
         public override void Stop()
         {
             onEngineStop?.Invoke();

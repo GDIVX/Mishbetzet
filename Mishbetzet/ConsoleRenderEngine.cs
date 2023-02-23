@@ -9,13 +9,23 @@ namespace Mishbetzet
 {
     internal class ConsoleRenderEngine : IRenderer
     {
+        /// <summary>
+        /// The tile object defualt render color
+        /// </summary>
+        public ConsoleColor TileObjectColor { get; protected set; } = ConsoleColor.Blue;
+        
         Tilemap? _renderEngineTileMap;
-
+        
         public ConsoleRenderEngine(Tilemap tilemap)
         {
             _renderEngineTileMap = tilemap;
         }
 
+        /// <summary>
+        /// Rendered the game
+        /// </summary>
+        /// <param name="tilemap">The desired tilemap to render</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void Render(Tilemap tilemap)
         {
             if (_renderEngineTileMap != null)
@@ -40,6 +50,12 @@ namespace Mishbetzet
         
         }
 
+        /// <summary>
+        /// Rendered the tile
+        /// </summary>
+        /// <param name="x">Tile's x location</param>
+        /// <param name="y">Tile's y location</param>
+        /// <param name="tilemap">Tile's originated tilemap</param>
         public void RenderTile(int x, int y, Tilemap tilemap)
         {
             Console.Write("[");
@@ -47,11 +63,17 @@ namespace Mishbetzet
             Console.Write("]");
         }
 
+        /// <summary>
+        /// Renderes the TileObject
+        /// </summary>
+        /// <param name="x">TileObject's x location</param>
+        /// <param name="y">TileObject's y location</param>
+        /// <param name="tilemap">TileObject's originated tilemap</param>
         public void RenderTileObject(int x, int y, Tilemap tilemap)
         {
             if (tilemap.GetTile(x,y).tileObject != null)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = TileObjectColor;
                 Console.Write("O");
                 Console.ForegroundColor = ConsoleColor.White;
             }

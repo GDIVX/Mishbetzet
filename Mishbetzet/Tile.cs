@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
+    /// <summary>
+    /// Tile class
+    /// </summary>
     public abstract class Tile
     {
         public TileObject tileObject { get; set; }
@@ -24,7 +27,7 @@ namespace Mishbetzet
 
         #endregion
 
-        public void SetGameObject(TileObject newTileObject)
+        public void SetTileObject(TileObject newTileObject)
         {
             this.tileObject = newTileObject;
             newTileObject.SetTile(this);

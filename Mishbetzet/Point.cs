@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
+    /// <summary>
+    /// A point on a 2d plane
+    /// </summary>
     public struct Point
     {
         public int X { get; set; }

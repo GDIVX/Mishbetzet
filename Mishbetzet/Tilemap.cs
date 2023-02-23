@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet
 {
+    /// <summary>
+    /// The game's tilemap
+    /// </summary>
     public class Tilemap : IEnumerable<Tile>
     {
         Tile[,] _tiles;

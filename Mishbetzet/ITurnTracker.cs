@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mishbetzet.Turns
 {
+    /// <summary>
+    /// Keep track on turns
+    /// </summary>
     public interface ITurnTracker
     {
         /// <summary>
