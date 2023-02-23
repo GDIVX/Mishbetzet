@@ -1,0 +1,216 @@
+\hypertarget{class_mishbetzet_1_1_core}{}\doxysection{Mishbetzet.\+Core Class Reference}
+\label{class_mishbetzet_1_1_core}\index{Mishbetzet.Core@{Mishbetzet.Core}}
+
+
+\mbox{\hyperlink{class_mishbetzet_1_1_core}{Core}} engine implementation   
+
+
+Inheritance diagram for Mishbetzet.\+Core\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mishbetzet_1_1_core}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_tilemap}{Tilemap}} \mbox{\hyperlink{class_mishbetzet_1_1_core_a02ecd93f309dd0b1a4814395041692bf}{Create\+Tile\+Map}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Creates a tilemap with the given width and height  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} \mbox{\hyperlink{class_mishbetzet_1_1_core_a149fe45f1ab38611fe7fcd80b0a732af}{Create\+Tile$<$ T $>$}} (\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} position)
+\begin{DoxyCompactList}\small\item\em Create a tile and add it to \mbox{\hyperlink{class_mishbetzet_1_1_tilemap}{Tilemap}}  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile_object}{Tile\+Object}} \mbox{\hyperlink{class_mishbetzet_1_1_core_aad7a3bb0d242cb8f5db10362708e5112}{Create\+Game\+Object$<$ T $>$}} (\mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}} owner, \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} tile)
+\begin{DoxyCompactList}\small\item\em Create a tile and add it to \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}} \mbox{\hyperlink{class_mishbetzet_1_1_core_ac570a72a9f7957f3a44801c9686062fb}{Create\+Actor}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new actor  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}}? \mbox{\hyperlink{class_mishbetzet_1_1_core_a166c5fc76ec168b1b0ca43cd3ef122cf}{Create\+Actor$<$ T $>$}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new actor based on a defulat class  \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_mishbetzet_1_1_core_a8581c67814ea77281ed0dd162215c2c0}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Called at the start  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a5e886456c0911a5b7c155f049a2abbc7}\label{class_mishbetzet_1_1_core_a5e886456c0911a5b7c155f049a2abbc7}} 
+void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Called every turn to update the game state  \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_mishbetzet_1_1_core_ab263bc7c1417f2d544c8d564e0b56181}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the engine from running  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a1469aede46482597380b7b04a1be5421}\label{class_mishbetzet_1_1_core_a1469aede46482597380b7b04a1be5421}} 
+static \mbox{\hyperlink{class_mishbetzet_1_1_core}{Core}} {\bfseries Main}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Singelton for the core engine  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a3321c6e1ca36bfca57823ef96b7af7b1}\label{class_mishbetzet_1_1_core_a3321c6e1ca36bfca57823ef96b7af7b1}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_tilemap}{Tilemap}}? {\bfseries Tilemap}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a0dfdb29eacc85e6dcc2e5678cb825373}\label{class_mishbetzet_1_1_core_a0dfdb29eacc85e6dcc2e5678cb825373}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_turns_1_1_turn_manager}{Turn\+Manager}} {\bfseries Turn\+Manager} = new()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a36cc1cf286efd089a41544c3a6abc91b}\label{class_mishbetzet_1_1_core_a36cc1cf286efd089a41544c3a6abc91b}} 
+override bool {\bfseries Is\+Running}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_adf51d7eb056e3aa8cf1b2d836404358b}\label{class_mishbetzet_1_1_core_adf51d7eb056e3aa8cf1b2d836404358b}} 
+Action {\bfseries On\+Tilemap\+Updated}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_af57199b9c1cb7e670a057fa22990d068}\label{class_mishbetzet_1_1_core_af57199b9c1cb7e670a057fa22990d068}} 
+Action? {\bfseries on\+Engine\+Start}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a5cddea4a04bf995c4285c29f881da3d0}\label{class_mishbetzet_1_1_core_a5cddea4a04bf995c4285c29f881da3d0}} 
+Action? {\bfseries on\+Engine\+Stop}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_mishbetzet_1_1_core}{Core}} engine implementation  
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_ac570a72a9f7957f3a44801c9686062fb}\label{class_mishbetzet_1_1_core_ac570a72a9f7957f3a44801c9686062fb}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!CreateActor@{CreateActor}}
+\index{CreateActor@{CreateActor}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{CreateActor()}{CreateActor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}} Mishbetzet.\+Core.\+Create\+Actor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new actor  
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a166c5fc76ec168b1b0ca43cd3ef122cf}\label{class_mishbetzet_1_1_core_a166c5fc76ec168b1b0ca43cd3ef122cf}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!CreateActor$<$ T $>$@{CreateActor$<$ T $>$}}
+\index{CreateActor$<$ T $>$@{CreateActor$<$ T $>$}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{CreateActor$<$ T $>$()}{CreateActor< T >()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}}? \mbox{\hyperlink{class_mishbetzet_1_1_core_ac570a72a9f7957f3a44801c9686062fb}{Mishbetzet.\+Core.\+Create\+Actor}}$<$ T $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new actor based on a defulat class  
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}} defualt class\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Actor}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_aad7a3bb0d242cb8f5db10362708e5112}\label{class_mishbetzet_1_1_core_aad7a3bb0d242cb8f5db10362708e5112}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!CreateGameObject$<$ T $>$@{CreateGameObject$<$ T $>$}}
+\index{CreateGameObject$<$ T $>$@{CreateGameObject$<$ T $>$}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{CreateGameObject$<$ T $>$()}{CreateGameObject< T >()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_tile_object}{Tile\+Object}} Mishbetzet.\+Core.\+Create\+Game\+Object$<$ T $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}}}]{owner,  }\item[{\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a tile and add it to \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}  
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & The owner of tile\+Object\\
+\hline
+{\em tile} & The tile\+Object\textquotesingle{}s tile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & \\
+\hline
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Tile\+Object}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a149fe45f1ab38611fe7fcd80b0a732af}\label{class_mishbetzet_1_1_core_a149fe45f1ab38611fe7fcd80b0a732af}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!CreateTile$<$ T $>$@{CreateTile$<$ T $>$}}
+\index{CreateTile$<$ T $>$@{CreateTile$<$ T $>$}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{CreateTile$<$ T $>$()}{CreateTile< T >()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} Mishbetzet.\+Core.\+Create\+Tile$<$ T $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a tile and add it to \mbox{\hyperlink{class_mishbetzet_1_1_tilemap}{Tilemap}}  
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Tile}]\end{description}
+\end{Desc}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a02ecd93f309dd0b1a4814395041692bf}\label{class_mishbetzet_1_1_core_a02ecd93f309dd0b1a4814395041692bf}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!CreateTileMap@{CreateTileMap}}
+\index{CreateTileMap@{CreateTileMap}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{CreateTileMap()}{CreateTileMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_tilemap}{Tilemap}} Mishbetzet.\+Core.\+Create\+Tile\+Map (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a tilemap with the given width and height  
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_a8581c67814ea77281ed0dd162215c2c0}\label{class_mishbetzet_1_1_core_a8581c67814ea77281ed0dd162215c2c0}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!Run@{Run}}
+\index{Run@{Run}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily override void Mishbetzet.\+Core.\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called at the start  
+
+
+
+Implements \mbox{\hyperlink{class_mishbetzet_1_1_engine}{Mishbetzet.\+Engine}}.
+
+\mbox{\Hypertarget{class_mishbetzet_1_1_core_ab263bc7c1417f2d544c8d564e0b56181}\label{class_mishbetzet_1_1_core_ab263bc7c1417f2d544c8d564e0b56181}} 
+\index{Mishbetzet.Core@{Mishbetzet.Core}!Stop@{Stop}}
+\index{Stop@{Stop}!Mishbetzet.Core@{Mishbetzet.Core}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily override void Mishbetzet.\+Core.\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Stops the engine from running  
+
+
+
+Implements \mbox{\hyperlink{class_mishbetzet_1_1_engine}{Mishbetzet.\+Engine}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core.\+cs\end{DoxyCompactItemize}

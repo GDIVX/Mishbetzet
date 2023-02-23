@@ -1,0 +1,85 @@
+\hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager}{}\doxysection{Mishbetzet.\+Turns.\+Turn\+Manager Class Reference}
+\label{class_mishbetzet_1_1_turns_1_1_turn_manager}\index{Mishbetzet.Turns.TurnManager@{Mishbetzet.Turns.TurnManager}}
+
+
+Manages the turn order for ITurn\+Trackers in the game   
+
+
+Inheritance diagram for Mishbetzet.\+Turns.\+Turn\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mishbetzet_1_1_turns_1_1_turn_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_mishbetzet_1_1_turns_1_1_turn_manager_a00ba5f9c0031a0d914ae75d0b4cb3a11}{Add\+To\+Turn\+Order}} (\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} turn\+Tracker)
+\begin{DoxyCompactList}\small\item\em Add an \mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} to the turn order  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_aa1c580e875b5624c245c590045f43f5a}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_aa1c580e875b5624c245c590045f43f5a}} 
+void {\bfseries Add\+To\+Turn\+Order} (\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} turn\+Tracker, int index)
+\item 
+void \mbox{\hyperlink{class_mishbetzet_1_1_turns_1_1_turn_manager_a57384056410eb54c47375378484b7a99}{Remove\+From\+Turn\+Order}} (\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} turn\+Tracker)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} from the turn order  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a54a49808e8c5e09a29cfe571b498d46c}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a54a49808e8c5e09a29cfe571b498d46c}} 
+void {\bfseries Start\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Start the current turn  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a927c572f1835b2558334c70d85a1b489}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a927c572f1835b2558334c70d85a1b489}} 
+void {\bfseries Skip} ()
+\begin{DoxyCompactList}\small\item\em Skip the current turn  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a2d70309b473ca3a31fcff0eabbc0b164}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a2d70309b473ca3a31fcff0eabbc0b164}} 
+void {\bfseries End\+Turn} ()
+\begin{DoxyCompactList}\small\item\em End the current turn  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a911d3412c20cc3b86118b4fc5874af94}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a911d3412c20cc3b86118b4fc5874af94}} 
+void {\bfseries Clear\+Turn\+Order} ()
+\begin{DoxyCompactList}\small\item\em Stop tracking all turns  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a95ce42eac36b761918beeb362f13bd34}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a95ce42eac36b761918beeb362f13bd34}} 
+IEnumerator {\bfseries Get\+Enumerator} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a50d242ca03ded1142ef3e920accdf557}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a50d242ca03ded1142ef3e920accdf557}} 
+\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} {\bfseries Current\+Turn}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the turn order for ITurn\+Trackers in the game  
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a00ba5f9c0031a0d914ae75d0b4cb3a11}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a00ba5f9c0031a0d914ae75d0b4cb3a11}} 
+\index{Mishbetzet.Turns.TurnManager@{Mishbetzet.Turns.TurnManager}!AddToTurnOrder@{AddToTurnOrder}}
+\index{AddToTurnOrder@{AddToTurnOrder}!Mishbetzet.Turns.TurnManager@{Mishbetzet.Turns.TurnManager}}
+\doxysubsubsection{\texorpdfstring{AddToTurnOrder()}{AddToTurnOrder()}}
+{\footnotesize\ttfamily void Mishbetzet.\+Turns.\+Turn\+Manager.\+Add\+To\+Turn\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}}}]{turn\+Tracker }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add an \mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} to the turn order  
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn\+Tracker} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mishbetzet_1_1_turns_1_1_turn_manager_a57384056410eb54c47375378484b7a99}\label{class_mishbetzet_1_1_turns_1_1_turn_manager_a57384056410eb54c47375378484b7a99}} 
+\index{Mishbetzet.Turns.TurnManager@{Mishbetzet.Turns.TurnManager}!RemoveFromTurnOrder@{RemoveFromTurnOrder}}
+\index{RemoveFromTurnOrder@{RemoveFromTurnOrder}!Mishbetzet.Turns.TurnManager@{Mishbetzet.Turns.TurnManager}}
+\doxysubsubsection{\texorpdfstring{RemoveFromTurnOrder()}{RemoveFromTurnOrder()}}
+{\footnotesize\ttfamily void Mishbetzet.\+Turns.\+Turn\+Manager.\+Remove\+From\+Turn\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}}}]{turn\+Tracker }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove \mbox{\hyperlink{interface_mishbetzet_1_1_turns_1_1_i_turn_tracker}{ITurn\+Tracker}} from the turn order  
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn\+Tracker} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Turn\+Manager.\+cs\end{DoxyCompactItemize}

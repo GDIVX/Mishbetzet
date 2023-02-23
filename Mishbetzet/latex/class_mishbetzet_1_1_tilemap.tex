@@ -1,0 +1,86 @@
+\hypertarget{class_mishbetzet_1_1_tilemap}{}\doxysection{Mishbetzet.\+Tilemap Class Reference}
+\label{class_mishbetzet_1_1_tilemap}\index{Mishbetzet.Tilemap@{Mishbetzet.Tilemap}}
+
+
+The game\textquotesingle{}s tilemap   
+
+
+Inheritance diagram for Mishbetzet.\+Tilemap\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mishbetzet_1_1_tilemap}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_a12f235bcb98116f771be52341b33618c}\label{class_mishbetzet_1_1_tilemap_a12f235bcb98116f771be52341b33618c}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}? {\bfseries Get\+Tile} (\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} point)
+\item 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}? \mbox{\hyperlink{class_mishbetzet_1_1_tilemap_ace7e59b5a89f2d9ea91c650be73a034b}{Get\+Tile}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Return a tile in index x,y  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mishbetzet_1_1_tilemap_ad3e76f164480adfc87f8999962536282}{Add\+Tile}} (\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} tile)
+\begin{DoxyCompactList}\small\item\em Create and add a tile in index x,y  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_a0ac080415c3d7bbf5a6ac2e3a6df0cf3}\label{class_mishbetzet_1_1_tilemap_a0ac080415c3d7bbf5a6ac2e3a6df0cf3}} 
+IEnumerator$<$ \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} $>$ {\bfseries Get\+Enumerator} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_ac62825856b03dfa269f714caaf10c143}\label{class_mishbetzet_1_1_tilemap_ac62825856b03dfa269f714caaf10c143}} 
+int {\bfseries Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_a260b711b4edc06fa6c7c1324d3563410}\label{class_mishbetzet_1_1_tilemap_a260b711b4edc06fa6c7c1324d3563410}} 
+int {\bfseries Height}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_a5149f643ce7ae9379f1c29ce15dc3af4}\label{class_mishbetzet_1_1_tilemap_a5149f643ce7ae9379f1c29ce15dc3af4}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}? {\bfseries this\mbox{[}int x, int y\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The game\textquotesingle{}s tilemap  
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_ad3e76f164480adfc87f8999962536282}\label{class_mishbetzet_1_1_tilemap_ad3e76f164480adfc87f8999962536282}} 
+\index{Mishbetzet.Tilemap@{Mishbetzet.Tilemap}!AddTile@{AddTile}}
+\index{AddTile@{AddTile}!Mishbetzet.Tilemap@{Mishbetzet.Tilemap}}
+\doxysubsubsection{\texorpdfstring{AddTile()}{AddTile()}}
+{\footnotesize\ttfamily void Mishbetzet.\+Tilemap.\+Add\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create and add a tile in index x,y  
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & width index\\
+\hline
+{\em y} & hight index\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mishbetzet_1_1_tilemap_ace7e59b5a89f2d9ea91c650be73a034b}\label{class_mishbetzet_1_1_tilemap_ace7e59b5a89f2d9ea91c650be73a034b}} 
+\index{Mishbetzet.Tilemap@{Mishbetzet.Tilemap}!GetTile@{GetTile}}
+\index{GetTile@{GetTile}!Mishbetzet.Tilemap@{Mishbetzet.Tilemap}}
+\doxysubsubsection{\texorpdfstring{GetTile()}{GetTile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}}? Mishbetzet.\+Tilemap.\+Get\+Tile (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a tile in index x,y  
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & width index\\
+\hline
+{\em y} & hight index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tile in index x,y, or null if index is not valid
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tilemap.\+cs\end{DoxyCompactItemize}

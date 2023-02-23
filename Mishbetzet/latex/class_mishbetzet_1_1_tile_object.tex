@@ -1,0 +1,103 @@
+\hypertarget{class_mishbetzet_1_1_tile_object}{}\doxysection{Mishbetzet.\+Tile\+Object Class Reference}
+\label{class_mishbetzet_1_1_tile_object}\index{Mishbetzet.TileObject@{Mishbetzet.TileObject}}
+
+
+Holds the data and logic for tile objects   
+
+
+Inheritance diagram for Mishbetzet.\+Tile\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mishbetzet_1_1_tile_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a6f1c4fb9fc32dde1e4ec5259b4b002c0}\label{class_mishbetzet_1_1_tile_object_a6f1c4fb9fc32dde1e4ec5259b4b002c0}} 
+virtual void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Called every turn  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a843031b6b48c3ceecf32d4e23f54aea2}\label{class_mishbetzet_1_1_tile_object_a843031b6b48c3ceecf32d4e23f54aea2}} 
+virtual void {\bfseries Start} ()
+\begin{DoxyCompactList}\small\item\em Called when the game object is added to the game  \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_mishbetzet_1_1_tile_object_af79f2d441e308e495158dc82fbf87281}{Move}} (\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} position)
+\begin{DoxyCompactList}\small\item\em Move the game object to the given position  \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_mishbetzet_1_1_tile_object_a40645dc58999c418af57e3a0c07ab00f}{Try\+Step}} (\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} position)
+\begin{DoxyCompactList}\small\item\em Tries to take one step in a direction  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_ab17064b536885310aae4ad17edfcb671}\label{class_mishbetzet_1_1_tile_object_ab17064b536885310aae4ad17edfcb671}} 
+object {\bfseries Clone} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_ab2c685a28a26ebc0e43d08b6d896dac7}\label{class_mishbetzet_1_1_tile_object_ab2c685a28a26ebc0e43d08b6d896dac7}} 
+int {\bfseries Movement\+Range}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The distance the game object is allowed to move per turn.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a89952efa658390573a8ed960b722d4e6}\label{class_mishbetzet_1_1_tile_object_a89952efa658390573a8ed960b722d4e6}} 
+int {\bfseries Remaining\+Steps} = 10\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_acec0b86ad54f1acb62ac6f7343c66943}\label{class_mishbetzet_1_1_tile_object_acec0b86ad54f1acb62ac6f7343c66943}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_tile}{Tile}} {\bfseries Tile}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a50090235327fe81f6e1a36323f9fad00}\label{class_mishbetzet_1_1_tile_object_a50090235327fe81f6e1a36323f9fad00}} 
+\mbox{\hyperlink{class_mishbetzet_1_1_actor}{Actor}}? {\bfseries Actor}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a7a573c466337ee5e1f5d42b861a95f93}\label{class_mishbetzet_1_1_tile_object_a7a573c466337ee5e1f5d42b861a95f93}} 
+\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} {\bfseries Rednerable\+Point}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_aff9f621258189bba4531b765e35fd106}\label{class_mishbetzet_1_1_tile_object_aff9f621258189bba4531b765e35fd106}} 
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a37c218b9c84c88578679ab7576dbf845}\label{class_mishbetzet_1_1_tile_object_a37c218b9c84c88578679ab7576dbf845}} 
+Action {\bfseries On\+Move}
+\item 
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a45e77f64cb441f1629f72681fafd1f56}\label{class_mishbetzet_1_1_tile_object_a45e77f64cb441f1629f72681fafd1f56}} 
+Action$<$ \mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}} $>$ {\bfseries On\+Pass\+Over}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds the data and logic for tile objects  
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_af79f2d441e308e495158dc82fbf87281}\label{class_mishbetzet_1_1_tile_object_af79f2d441e308e495158dc82fbf87281}} 
+\index{Mishbetzet.TileObject@{Mishbetzet.TileObject}!Move@{Move}}
+\index{Move@{Move}!Mishbetzet.TileObject@{Mishbetzet.TileObject}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily virtual void Mishbetzet.\+Tile\+Object.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Move the game object to the given position  
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mishbetzet_1_1_tile_object_a40645dc58999c418af57e3a0c07ab00f}\label{class_mishbetzet_1_1_tile_object_a40645dc58999c418af57e3a0c07ab00f}} 
+\index{Mishbetzet.TileObject@{Mishbetzet.TileObject}!TryStep@{TryStep}}
+\index{TryStep@{TryStep}!Mishbetzet.TileObject@{Mishbetzet.TileObject}}
+\doxysubsubsection{\texorpdfstring{TryStep()}{TryStep()}}
+{\footnotesize\ttfamily virtual bool Mishbetzet.\+Tile\+Object.\+Try\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mishbetzet_1_1_point}{Point}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Tries to take one step in a direction  
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tile\+Object.\+cs\end{DoxyCompactItemize}
